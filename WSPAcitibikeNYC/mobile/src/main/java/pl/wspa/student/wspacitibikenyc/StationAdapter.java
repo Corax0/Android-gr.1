@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * Created by Tomasz on 17.09.2015.
  * Stolen by Piotrek on 2015-11-04.
- */
+ * Read by Adrian on 2015-11-20.*/
 public class StationAdapter extends ArrayAdapter<Station> {
     ArrayList<Station> stationList;
     LayoutInflater view;
@@ -56,7 +56,7 @@ public class StationAdapter extends ArrayAdapter<Station> {
 
         holder.stationName.setText("Nazwa stacji: " + stationList.get(position).getStationName());
         holder.availableDocks.setText("Wolnych miejsc: " + stationList.get(position).getAvailableDocks());
-        holder.availableBikes.setText("Dostêpnych rowerów: " + stationList.get(position).getAvailableBikes());
+        holder.availableBikes.setText("Dostï¿½pnych rowerï¿½w: " + stationList.get(position).getAvailableBikes());
         holder.statusValue.setText("Status stacji: " + stationList.get(position).getStatusValue());
 
         return v;

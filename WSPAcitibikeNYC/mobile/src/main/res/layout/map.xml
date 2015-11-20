@@ -1,0 +1,52 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/background_clear"
+    android:id="@+id/map_layout">
+
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        android:text="@string/navigate_to_point"
+        android:id="@+id/navigate_to_point"
+        android:layout_gravity="center_horizontal|left"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/button_background"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:textSize="20sp" />
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        android:text="@string/nearest_stations"
+        android:id="@+id/nearest_stations"
+        android:layout_gravity="center"
+        android:layout_alignBottom="@+id/your_localization"
+        android:layout_toEndOf="@+id/your_localization"
+        android:background="@drawable/button_background"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:textSize="20sp" />
+
+    <Button
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        android:text="@string/your_localization"
+        android:id="@+id/your_localization"
+        android:layout_gravity="center"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/button_background"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:shadowColor="#000000"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"/>
+
+</RelativeLayout>

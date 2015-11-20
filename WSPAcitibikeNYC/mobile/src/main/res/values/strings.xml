@@ -4,5 +4,8 @@
     <string name="app_name">WSPA citi bike NYC</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="your_localization">Twoja \nLokalizacja</string>
+    <string name="nearest_stations">Najbliższe \nStacje</string>
+    <string name="navigate_to_point">Nawiguj do\npunktu</string>
 
 </resources>
