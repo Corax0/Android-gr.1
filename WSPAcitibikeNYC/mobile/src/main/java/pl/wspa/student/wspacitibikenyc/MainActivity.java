@@ -1,5 +1,6 @@
 package pl.wspa.student.wspacitibikenyc;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -7,11 +8,15 @@ import android.view.MenuItem;
 
 
 public class MainActivity extends ActionBarActivity {
+    public static final int APPLICATION_START=1,
+                               RESULT_LOADED=2;
+    public static final String NY_CITY_BIKE_URL="http://www.citibikenyc.com/stations/json";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        startActivityForResult(new Intent(this, LoadingActivity.class), APPLICATION_START);
     }
 
 
@@ -35,5 +40,23 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if(requestCode==APPLICATION_START){
+            switch(resultCode){
+                case RESULT_LOADED:
+                    if(data.hasExtra("")){
+                        //TODO()data.getExtras().getSerializable("") ;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+        else{
+            finish();
+        }
     }
 }
