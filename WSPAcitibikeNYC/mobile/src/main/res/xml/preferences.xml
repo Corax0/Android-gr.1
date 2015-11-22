@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference
+        android:key="internet_off"
+        android:title="@string/settings_internet_off_title"
+        android:summary="@string/settings_internet_off_summary"
+        android:defaultValue="true" />
+    <CheckBoxPreference
+        android:key="localization_off"
+        android:title="@string/settings_localization_off_title"
+        android:summary="@string/settings_localization_off_summary"
+        android:defaultValue="true" />
+</PreferenceScreen>

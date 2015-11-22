@@ -18,6 +18,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.net.HttpURLConnection;
 import java.util.ArrayList;
 
 class JSONAsyncTask extends AsyncTask<String, Void, Boolean>
@@ -25,13 +26,6 @@ class JSONAsyncTask extends AsyncTask<String, Void, Boolean>
 
     public static ArrayList<Station> stationArrayList;
     //ProgressDialog dialog;
-
-    public static void InitializeStationArrayList()
-    {
-        if (stationArrayList == null)
-            stationArrayList = new ArrayList<Station>();
-        return;
-    }
 
     @Override
     protected void onPreExecute() {
@@ -45,14 +39,16 @@ class JSONAsyncTask extends AsyncTask<String, Void, Boolean>
 
     @Override
     protected Boolean doInBackground(String... urls) {
+        if(stationArrayList == null)
+            stationArrayList = new ArrayList<Station>();
+
         try {
             HttpGet httppost = new HttpGet(urls[0]);
             HttpClient httpClient = new DefaultHttpClient();
 
             HttpResponse response = httpClient.execute(httppost);
 
-            int status = response.getStatusLine().getStatusCode();
-            if (status == 200) {
+            if (response.getStatusLine().getStatusCode() == HttpURLConnection.HTTP_OK) {
                 HttpEntity entity = response.getEntity();
                 String data = EntityUtils.toString(entity);
                 JSONObject jasonObj = new JSONObject(data);
@@ -60,13 +56,25 @@ class JSONAsyncTask extends AsyncTask<String, Void, Boolean>
 
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject object = jsonArray.getJSONObject(i);
-                    Station station = new Station();
-
-                    station.setStationName(object.getString("stationName"));
-                    station.setAvailableDocks(object.getString("availableDocks"));
-                    station.setAvailableBikes(object.getString("availableBikes"));
-                    station.setStatusValue(object.getString("statusValue"));
-                    station.setLastCommunicationTime(object.getString("lastCommunicationTime"));
+                    Station station = new Station(
+                            object.getString("id"),
+                            object.getString("stationName"),
+                            object.getString("availableDocks"),
+                            object.getString("totalDocks"),
+                            object.getString("latitude"),
+                            object.getString("longitude"),
+                            object.getString("statusValue"),
+                            object.getString("statusKey"),
+                            object.getString("availableBikes"),
+                            object.getString("stAddress1"),
+                            object.getString("stAddress2"),
+                            object.getString("city"),
+                            object.getString("postalCode"),
+                            object.getString("location"),
+                            object.getString("altitude"),
+                            object.getString("testStation"),
+                            object.getString("lastCommunicationTime"),
+                            object.getString("landMark"));
                     stationArrayList.add(station);
                 }
                 return true;

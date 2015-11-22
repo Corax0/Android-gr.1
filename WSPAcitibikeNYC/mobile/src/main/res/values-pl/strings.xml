@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WSPA Citi Bike NY</string>
+
+    <string name="action_settings">Ustawienia</string>
+
+    <string name="row_station_name">Nazwa stacji</string>
+
+    <string name="settings_internet_off_title">Internet</string>
+    <string name="settings_internet_off_summary">Aplikacja nie pyta o połączenie z internetem</string>
+    <string name="settings_localization_off_title">Lokalizacja</string>
+    <string name="settings_localization_off_summary">Aplikacja nie pyta o połączenie z GPS</string>
+
+</resources>

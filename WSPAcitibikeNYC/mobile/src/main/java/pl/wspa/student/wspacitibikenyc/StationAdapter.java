@@ -17,47 +17,42 @@ import java.util.List;
  * Stolen by Piotrek on 2015-11-04.
  * Read by Adrian on 2015-11-20.*/
 public class StationAdapter extends ArrayAdapter<Station> {
-    ArrayList<Station> stationList;
-    LayoutInflater view;
-    int Resource;
-    ViewHolder holder;
-
-    public StationAdapter(Context context, int resource, ArrayList<Station> objects) {
-        super(context, resource, objects);
-        view = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        Resource = resource;
-        stationList = objects;
-    }
-
-
-
-
-
     static class ViewHolder {
+        /*TODO elementy wiersza w liscie
         public TextView stationName;
         public TextView availableDocks;
         public TextView availableBikes;
         public TextView statusValue;
+        */
+    }
+
+    ArrayList<Station> stationList;
+    LayoutInflater view;
+    int resource;
+    ViewHolder holder;
+
+    public StationAdapter(Context context, int resource, ArrayList<Station> objects) {
+        super(context, resource, objects);
+        this.view = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        this.resource = resource;
+        this.stationList = objects;
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
         View v = convertView;
         if (v == null) {
             holder = new ViewHolder();
-            v = view.inflate(Resource, null);
+            v = view.inflate(resource, null);
+            /*TODO elementy wiersza w liście
             holder.stationName = (TextView) v.findViewById(R.id.stationName);
-            holder.availableDocks = (TextView) v.findViewById(R.id.availableDocks);
-            holder.availableBikes = (TextView) v.findViewById(R.id.availableBikes);
-            holder.statusValue = (TextView) v.findViewById(R.id.statusValue);
+            */
             v.setTag(holder);
         } else {
             holder = (ViewHolder) v.getTag();
         }
-
-        holder.stationName.setText("Nazwa stacji: " + stationList.get(position).getStationName());
-        holder.availableDocks.setText("Wolnych miejsc: " + stationList.get(position).getAvailableDocks());
-        holder.availableBikes.setText("Dost�pnych rower�w: " + stationList.get(position).getAvailableBikes());
-        holder.statusValue.setText("Status stacji: " + stationList.get(position).getStatusValue());
+        /*TODO elementy wiersza w liście
+        holder.stationName.setText(R.string.station_name+": " + stationList.get(position).getStationName());
+        */
 
         return v;
     }
