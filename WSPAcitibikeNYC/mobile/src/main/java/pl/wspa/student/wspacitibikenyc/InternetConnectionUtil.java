@@ -1,18 +1,13 @@
 package pl.wspa.student.wspacitibikenyc;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-
-import java.io.IOException;
 
 /**
  * Created by Karolina i Daniel on 2015-11-22.
  */
-public class NetworkUtil {
+public class InternetConnectionUtil {
     public static int TYPE_WIFI = 1;
     public static int TYPE_MOBILE = 2;
     public static int TYPE_NOT_CONNECTED = 0;
@@ -39,13 +34,13 @@ public class NetworkUtil {
     }
 
     public static String getConnectivityStatusString(Context context) {
-        int conn = NetworkUtil.getConnectivityStatus(context);
+        int conn = InternetConnectionUtil.getConnectivityStatus(context);
         String status = null;
-        if (conn == NetworkUtil.TYPE_WIFI) {
+        if (conn == InternetConnectionUtil.TYPE_WIFI) {
             status = "Wifi enabled";
-        } else if (conn == NetworkUtil.TYPE_MOBILE) {
+        } else if (conn == InternetConnectionUtil.TYPE_MOBILE) {
             status = "Mobile data enabled";
-        } else if (conn == NetworkUtil.TYPE_NOT_CONNECTED) {
+        } else if (conn == InternetConnectionUtil.TYPE_NOT_CONNECTED) {
             status = "Not connected to Internet";
         }
         return status;

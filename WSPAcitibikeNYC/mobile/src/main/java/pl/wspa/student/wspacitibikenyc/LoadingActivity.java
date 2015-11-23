@@ -1,9 +1,9 @@
 package pl.wspa.student.wspacitibikenyc;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.ActionBarActivity;
+import android.widget.Toast;
 
 
 public class LoadingActivity extends ActionBarActivity {
@@ -11,7 +11,8 @@ public class LoadingActivity extends ActionBarActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
-        if(NetworkUtil.isConnectedToInternet(getApplicationContext())) {
+        //TODO w nowym watku trzeba to zrobic
+        if(InternetConnectionUtil.isConnectedToInternet(getApplicationContext())) {
             JSONAsyncTask json=new JSONAsyncTask(){
                 @Override
                 protected void onPostExecute(Boolean aBoolean) {
@@ -20,13 +21,13 @@ public class LoadingActivity extends ActionBarActivity {
                 }
             };
             json.execute(MainActivity.NY_CITY_BIKE_URL);
+            Toast.makeText(getApplicationContext(), "Zaktualizowano stacje", Toast.LENGTH_LONG).show();
         }
         else {
             InternetConnectionDialog dialog=new InternetConnectionDialog(){
                 @Override
-                public void onOkClick(DialogInterface dialog, int id) {
-                    super.onOkClick(dialog, id);
-                    //TODO BroadcastReciever
+                public void addBroadcastRegisterOperations() {
+                    finish();
                 }
             };
             dialog.setContext(getApplicationContext());

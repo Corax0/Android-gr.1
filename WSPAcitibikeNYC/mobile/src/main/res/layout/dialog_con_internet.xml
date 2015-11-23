@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/settings_internet_off_summary"
-        android:id="@+id/checkBox"
+        android:id="@+id/dci_checkBox"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
 </LinearLayout>
