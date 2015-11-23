@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">WSPA Citi Bike NY</string>
+      <string name="app_name">WSPA City Bike NY</string>
+
+    <string name="action_settings">Келтіру</string>
+
+    <string name="row_station_name">Аялдама аты </string>
+
+    <string name="settings_internet_off_title">Интернет</string>
+    <string name="settings_internet_off_summary">Тексеріңіз интернетке қосылу</string>
+    <string name="settings_localization_off_title">Орналасқан жері</string>
+    <string name="settings_localization_off_summary">Тексеріңіз GPS қосылу</string>
+
+    <string name="dialog_internet_message">Сіз қосуға болады қосылыс?</string>
 </resources>
