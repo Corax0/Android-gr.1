@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WSPA City Bike NY</string>
+    <string name="action_settings">Настройки</string>
+    <string name="row_station_name">Имя станции</string>
+    <string name="settings_internet_off_title">Интернет</string>
+    <string name="settings_internet_off_summary">Отсутствует подключение к интернету</string>
+    <string name="settings_localization_off_title">Местоположение</string>
+    <string name="settings_localization_off_summary">Отсутствует подключение к GPS</string>
+    <string name="dialog_internet_message">Подключиться к интернету?</string>
+</resources>
