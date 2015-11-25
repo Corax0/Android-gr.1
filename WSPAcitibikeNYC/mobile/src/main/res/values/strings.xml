@@ -16,8 +16,15 @@
     <string name="dialog_internet_message">Connect to internet?</string>
 
     <!--zachowywac jakos nazewnictwo!-->
-    <string name="your_localization">Twoja \nLokalizacja</string>
-    <string name="nearest_stations">Najbliższe \nStacje</string>
-    <string name="navigate_to_point">Nawiguj do\npunktu</string>
+    <string name="map_your_localization">Twoja \nlokalizacja</string>
+    <string name="map_nearest_stations">Najbliższe \nstacje</string>
+    <string name="map_navigate_to_point">Nawiguj do\npunktu</string>
+
+    <string name="menu_map">Mapa</string>
+    <string name="menu_settings">Ustawienia</string>
+    <string name="menu_find_connection">Znajdź połączenie</string>
+    <string name="menu_own_marks">Własne znaczniki</string>
+    <string name="menu_update">Aktualizacja</string>
+    <string name="menu_station_list">Lista stacji</string>
 
 </resources>

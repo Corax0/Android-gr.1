@@ -13,4 +13,11 @@
 
     <string name="dialog_checkbox_message">Nie pytaj ponownie</string>
     <string name="dialog_internet_message">Polaczyc z internetem?</string>
+
+    <string name="menu_map">Mapa</string>
+    <string name="menu_settings">Ustawienia</string>
+    <string name="menu_find_connection">Znajdź połączenie</string>
+    <string name="menu_own_marks">Własne znaczniki</string>
+    <string name="menu_update">Aktualizacja</string>
+    <string name="menu_station_list">Lista stacji</string>
 </resources>
