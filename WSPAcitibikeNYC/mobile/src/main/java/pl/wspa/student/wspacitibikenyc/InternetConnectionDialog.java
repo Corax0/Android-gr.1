@@ -6,37 +6,35 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.CheckBox;
+import android.preference.PreferenceManager;
 
 /**
  * Created by Karolina i Daniel on 2015-11-22.
  */
 public class InternetConnectionDialog extends ConnectionDialog {
 
-    Context context;
-
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog dialog= (AlertDialog) super.onCreateDialog(savedInstanceState);
-
-        LayoutInflater inflater = getActivity().getLayoutInflater();
-        dialog.setView(inflater.inflate(R.layout.dialog_con_internet, null));
+        dialog.setView(view);
         dialog.setTitle(R.string.settings_internet_off_title);
+        dialog.setMessage(getString(R.string.dialog_internet_message));
         return dialog;
     }
 
     @Override
     public void onOkClick(DialogInterface dialog, int id) {
-        CheckBox checkBox=(CheckBox)new View(context).findViewById(R.id.dci_checkBox);
         if(checkBox.isChecked()){
-            //TODO zmienic settingsy
+            SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putBoolean(SettingsActivity.KEY_INTERNET_OFF, true);
+            editor.commit();
         }
-        WifiManager wifiManager = (WifiManager)this.context.getSystemService(Context.WIFI_SERVICE);
+        WifiManager wifiManager = (WifiManager)getActivity().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         wifiManager.setWifiEnabled(true);
         IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
         filter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION);
@@ -46,10 +44,7 @@ public class InternetConnectionDialog extends ConnectionDialog {
                 addBroadcastRegisterOperations();
             }
         };
-        context.registerReceiver(icReceiver, filter);
+        getActivity().getApplicationContext().registerReceiver(icReceiver, filter);
     }
     public void addBroadcastRegisterOperations(){};
-    public void setContext(Context context){
-        this.context = context;
-    }
 }

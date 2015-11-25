@@ -12,6 +12,7 @@
     <string name="settings_localization_off_title">Localization</string>
     <string name="settings_localization_off_summary">Application does not ask about GPS connection</string>
 
+    <string name="dialog_checkbox_message">Do not ask again</string>
     <string name="dialog_internet_message">Connect to internet?</string>
 
     <!--zachowywac jakos nazewnictwo!-->

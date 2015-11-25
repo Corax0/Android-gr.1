@@ -4,10 +4,10 @@
         android:key="internet_off"
         android:title="@string/settings_internet_off_title"
         android:summary="@string/settings_internet_off_summary"
-        android:defaultValue="true" />
+        android:defaultValue="false" />
     <CheckBoxPreference
         android:key="localization_off"
         android:title="@string/settings_localization_off_title"
         android:summary="@string/settings_localization_off_summary"
-        android:defaultValue="true" />
+        android:defaultValue="false" />
 </PreferenceScreen>

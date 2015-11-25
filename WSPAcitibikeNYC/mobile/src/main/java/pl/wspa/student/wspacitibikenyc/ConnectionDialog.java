@@ -6,12 +6,17 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.CheckBox;
 
 /**
  * Created by Karolina i Daniel on 2015-11-22.
  */
 public abstract class ConnectionDialog extends DialogFragment {
     private boolean clickResult=true;
+    protected CheckBox checkBox;
+    View view;
 
     @NonNull
     @Override
@@ -28,12 +33,14 @@ public abstract class ConnectionDialog extends DialogFragment {
                         onCancelClick(dialog,id);
                     }
                 });
+        LayoutInflater inflater = getActivity().getLayoutInflater();
+        view=inflater.inflate(R.layout.dialog_connection, null);
+        checkBox=(CheckBox)view.findViewById(R.id.dci_checkBox);
         return builder.create();
     }
     public abstract void onOkClick(DialogInterface dialog, int id);
     public void onCancelClick(DialogInterface dialog, int id){
         clickResult =false;
-        ConnectionDialog.this.getDialog().cancel();
     }
 
     public boolean getResult() {

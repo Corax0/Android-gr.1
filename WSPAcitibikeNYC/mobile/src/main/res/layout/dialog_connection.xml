@@ -8,13 +8,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/dialog_internet_message"
         android:id="@+id/textView" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/settings_internet_off_summary"
+        android:text="@string/dialog_checkbox_message"
         android:id="@+id/dci_checkBox"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
