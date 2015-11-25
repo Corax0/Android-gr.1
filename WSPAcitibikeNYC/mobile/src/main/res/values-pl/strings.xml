@@ -19,5 +19,5 @@
     <string name="menu_find_connection">Znajdź połączenie</string>
     <string name="menu_own_marks">Własne znaczniki</string>
     <string name="menu_update">Aktualizacja</string>
-    <string name="menu_station_list">Lista stacji</string>
+    <string name="menu_stations_list">Lista stacji</string>
 </resources>
