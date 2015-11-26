@@ -12,7 +12,6 @@ import android.widget.Button;
 public class MainActivity extends ActionBarActivity {
     public static final int APPLICATION_START=1,
                                RESULT_LOADED=2;
-    public static final String NY_CITY_BIKE_URL="http://www.citibikenyc.com/stations/json";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +49,7 @@ public class MainActivity extends ActionBarActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            startActivity(new Intent(this, SettingsActivity.class));
             return true;
         }
 

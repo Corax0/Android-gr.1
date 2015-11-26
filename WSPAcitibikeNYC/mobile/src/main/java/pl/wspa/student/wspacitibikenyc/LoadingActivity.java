@@ -5,11 +5,12 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.ActionBarActivity;
-import android.widget.Toast;
 
 
 public class LoadingActivity extends ActionBarActivity {
     private boolean askInternet, askLocation;
+    private boolean taskInternet, taskLocation,taskDatabase;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,31 +19,63 @@ public class LoadingActivity extends ActionBarActivity {
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
         askInternet =settings.getBoolean(SettingsActivity.KEY_INTERNET_OFF, false);
         askLocation =settings.getBoolean(SettingsActivity.KEY_LOCATION_OFF, false);
-
-        //TODO w nowym watku trzeba to zrobic
+        taskInternet=true;
+        taskLocation =true;
+        taskDatabase=true;
+        if(LocationConnectionUtil.isConnectedToGPS(getApplicationContext())) {
+            //TODO wątek z lokalizacją
+            taskLocation =false;
+        }
+        else{
+            if(!askLocation){
+                DialogFragment fragment = new LocationConnectionDialog(){
+                    @Override
+                    public void onDestroyView() {
+                        super.onDestroyView();
+                        taskLocation =false;
+                    }
+                };
+                fragment.show(getSupportFragmentManager(), "location");
+            }
+            else{
+                taskLocation =false;
+            }
+        }
         if(InternetConnectionUtil.isConnectedToInternet(getApplicationContext())) {
-            JSONAsyncTask json=new JSONAsyncTask(){
-                @Override
-                protected void onPostExecute(Boolean aBoolean) {
-                    super.onPostExecute(aBoolean);
-                    Toast.makeText(getApplicationContext(), "Zaktualizowano stacje", Toast.LENGTH_LONG).show();
-                    finish();
-                }
-            };
-            json.execute(MainActivity.NY_CITY_BIKE_URL);
+            JSONAsyncTask json=new JSONAsyncTask(getApplicationContext());
+            json.execute(InternetConnectionUtil.NY_CITY_BIKE_URL);
+            taskInternet=false;
         }
         else {
             if(!askInternet) {
-                DialogFragment fragment = new InternetConnectionDialog() {
+                DialogFragment fragment = new InternetConnectionDialog(){
                     @Override
-                    public void addBroadcastRegisterOperations() {
-                        finish();
+                    public void onDestroyView() {
+                        super.onDestroyView();
+                        taskInternet=false;
                     }
                 };
                 fragment.show(getSupportFragmentManager(), "internet");
             }
+            else{
+                taskInternet=false;
+            }
         }
         //TODO SQL, i jakies inne pierdy
+        taskDatabase=false;
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while(taskInternet|| taskLocation ||taskDatabase){}
+                int millis=1000;
+                try {
+                    Thread.sleep(millis);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                finish();
+            }
+        }).start();
     }
 
     @Override

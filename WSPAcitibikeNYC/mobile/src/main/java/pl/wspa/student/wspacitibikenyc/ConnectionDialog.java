@@ -9,6 +9,7 @@ import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.TextView;
 
 /**
  * Created by Karolina i Daniel on 2015-11-22.
@@ -16,6 +17,7 @@ import android.widget.CheckBox;
 public abstract class ConnectionDialog extends DialogFragment {
     private boolean clickResult=true;
     protected CheckBox checkBox;
+    protected TextView message;
     View view;
 
     @NonNull
@@ -36,6 +38,7 @@ public abstract class ConnectionDialog extends DialogFragment {
         LayoutInflater inflater = getActivity().getLayoutInflater();
         view=inflater.inflate(R.layout.dialog_connection, null);
         checkBox=(CheckBox)view.findViewById(R.id.dci_checkBox);
+        message =(TextView)view.findViewById(R.id.dci_message);
         return builder.create();
     }
     public abstract void onOkClick(DialogInterface dialog, int id);

@@ -8,6 +8,8 @@ import android.net.NetworkInfo;
  * Created by Karolina i Daniel on 2015-11-22.
  */
 public class InternetConnectionUtil {
+    public static final String NY_CITY_BIKE_URL="http://www.citibikenyc.com/stations/json";
+
     public static int TYPE_WIFI = 1;
     public static int TYPE_MOBILE = 2;
     public static int TYPE_NOT_CONNECTED = 0;

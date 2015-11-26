@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string name="app_name">WSPA Citi Bike NY</string>
+    <string name="app_name">WSPA City Bike NY</string>
 
     <string name="action_settings">Settings</string>
 
@@ -9,11 +8,17 @@
 
     <string name="settings_internet_off_title">Internet</string>
     <string name="settings_internet_off_summary">Application does not ask about internet connection</string>
-    <string name="settings_localization_off_title">Localization</string>
-    <string name="settings_localization_off_summary">Application does not ask about GPS connection</string>
+    <string name="settings_location_off_title">Location</string>
+    <string name="settings_location_off_summary">Application does not ask about GPS connection</string>
 
     <string name="dialog_checkbox_message">Do not ask again</string>
-    <string name="dialog_internet_message">Connect to internet?</string>
+    <string name="dialog_internet_message">Internet connection is not enabled. Connect to internet?</string>
+    <string name="dialog_location_message">Location connection is not enabled. Go to Location Settings?</string>
+
+    <string name="toast_sync_station_success">Stations updated</string>
+    <string name="toast_sync_station_failed">Update failure</string>
+    <string name="toast_sync_location_success"><!--TODO--></string>
+    <string name="toast_sync_location_failed"><!--TODO--></string>
 
     <!--zachowywac jakos nazewnictwo!-->
     <string name="map_your_localization">Twoja \nlokalizacja</string>

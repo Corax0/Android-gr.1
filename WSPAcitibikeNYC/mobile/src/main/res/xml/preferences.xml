@@ -6,8 +6,8 @@
         android:summary="@string/settings_internet_off_summary"
         android:defaultValue="false" />
     <CheckBoxPreference
-        android:key="localization_off"
-        android:title="@string/settings_localization_off_title"
-        android:summary="@string/settings_localization_off_summary"
+        android:key="location_off"
+        android:title="@string/settings_location_off_title"
+        android:summary="@string/settings_location_off_summary"
         android:defaultValue="false" />
 </PreferenceScreen>

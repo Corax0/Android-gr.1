@@ -22,18 +22,12 @@ public class InternetConnectionDialog extends ConnectionDialog {
         AlertDialog dialog= (AlertDialog) super.onCreateDialog(savedInstanceState);
         dialog.setView(view);
         dialog.setTitle(R.string.settings_internet_off_title);
-        dialog.setMessage(getString(R.string.dialog_internet_message));
+        message.setText(getString(R.string.dialog_internet_message));
         return dialog;
     }
 
     @Override
     public void onOkClick(DialogInterface dialog, int id) {
-        if(checkBox.isChecked()){
-            SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
-            SharedPreferences.Editor editor = settings.edit();
-            editor.putBoolean(SettingsActivity.KEY_INTERNET_OFF, true);
-            editor.commit();
-        }
         WifiManager wifiManager = (WifiManager)getActivity().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         wifiManager.setWifiEnabled(true);
         IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
@@ -47,4 +41,15 @@ public class InternetConnectionDialog extends ConnectionDialog {
         getActivity().getApplicationContext().registerReceiver(icReceiver, filter);
     }
     public void addBroadcastRegisterOperations(){};
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if(checkBox.isChecked()){
+            SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putBoolean(SettingsActivity.KEY_INTERNET_OFF, true);
+            editor.commit();
+        }
+    }
 }

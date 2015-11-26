@@ -8,16 +8,26 @@
 
     <string name="settings_internet_off_title">Internet</string>
     <string name="settings_internet_off_summary">Aplikacja nie pyta o połączenie z internetem</string>
-    <string name="settings_localization_off_title">Lokalizacja</string>
-    <string name="settings_localization_off_summary">Aplikacja nie pyta o połączenie z GPS</string>
+    <string name="settings_location_off_title">Lokalizacja</string>
+    <string name="settings_location_off_summary">Aplikacja nie pyta o połączenie z GPS</string>
 
     <string name="dialog_checkbox_message">Nie pytaj ponownie</string>
-    <string name="dialog_internet_message">Polaczyc z internetem?</string>
+    <string name="dialog_internet_message">Połączenie z internetem jest niedostępne. Polaczyc z internetem?</string>
+    <string name="dialog_location_message">Dostęp do lokalizacji jest niemożliwy. Przejść do ustawień lokalizacji?</string>
+
+    <string name="toast_sync_station_success">Zaktualizowano stacje</string>
+    <string name="toast_sync_station_failed">Błąd aktualizacji</string>
+    <string name="toast_sync_location_success"><!--TODO--></string>
+    <string name="toast_sync_location_failed"><!--TODO--></string>
+
+    <string name="map_your_localization"><!--TODO--></string>
+    <string name="map_nearest_stations"><!--TODO--></string>
+    <string name="map_navigate_to_point"><!--TODO--></string>
 
     <string name="menu_map">Mapa</string>
     <string name="menu_settings">Ustawienia</string>
     <string name="menu_find_connection">Znajdź połączenie</string>
     <string name="menu_own_marks">Własne znaczniki</string>
     <string name="menu_update">Aktualizacja</string>
-    <string name="menu_stations_list">Lista stacji</string>
+    <string name="menu_station_list">Lista stacji</string>
 </resources>

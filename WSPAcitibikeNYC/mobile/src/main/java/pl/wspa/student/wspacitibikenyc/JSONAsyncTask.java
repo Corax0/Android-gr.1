@@ -4,8 +4,9 @@ package pl.wspa.student.wspacitibikenyc;
  * Stolen by Piotrek on 2015-11-04.
  */
 
-import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.AsyncTask;
+import android.widget.Toast;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -23,18 +24,17 @@ import java.util.ArrayList;
 
 class JSONAsyncTask extends AsyncTask<String, Void, Boolean>
 {
-
+    private Context context;
     public static ArrayList<Station> stationArrayList;
-    //ProgressDialog dialog;
+
+    public JSONAsyncTask(Context context){
+        super();
+        this.context=context;
+    }
 
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        /*dialog = new ProgressDialog(MainActivity.this);
-        dialog.setMessage("Trwa ³adowanie danych");
-        dialog.setTitle("Nawi¹zywanie po³¹czenia");
-        dialog.show();
-        dialog.setCancelable(false);*/
     }
 
     @Override
@@ -95,11 +95,13 @@ class JSONAsyncTask extends AsyncTask<String, Void, Boolean>
     @Override
     protected void onPostExecute(Boolean aBoolean) {
         super.onPostExecute(aBoolean);
-        //dialog.cancel();
-        //adapter.notifyDataSetChanged();
-        if (aBoolean==false)
-        {
-            //Toast.makeText(getApplicationContext(),"Nie mo¿na pobraæ danych",Toast.LENGTH_LONG).show();
+        //TODO adapter.notifyDataSetChanged();
+        if (aBoolean){
+            Toast.makeText(context,R.string.toast_sync_station_success , Toast.LENGTH_LONG).show();
+        }
+        else{
+            Toast.makeText(context,R.string.toast_sync_station_failed,Toast.LENGTH_LONG).show();
         }
     }
+
 }

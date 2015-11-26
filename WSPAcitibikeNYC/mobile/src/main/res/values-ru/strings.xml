@@ -1,11 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">WSPA City Bike NY</string>
+    <string name="app_name">WSPA City Bike NY<!--TODO maybe in russia?--></string>
+
     <string name="action_settings">Настройки</string>
+
     <string name="row_station_name">Имя станции</string>
+
     <string name="settings_internet_off_title">Интернет</string>
     <string name="settings_internet_off_summary">Отсутствует подключение к интернету</string>
-    <string name="settings_localization_off_title">Местоположение</string>
-    <string name="settings_localization_off_summary">Отсутствует подключение к GPS</string>
-    <string name="dialog_internet_message">Подключиться к интернету?</string>
+    <string name="settings_location_off_title">Местоположение</string>
+    <string name="settings_location_off_summary">Отсутствует подключение к GPS</string>
+
+    <string name="dialog_checkbox_message"><!--TODO--></string>
+    <string name="dialog_internet_message"><!--TODO--></string>
+    <string name="dialog_location_message"><!--TODO--></string>
+
+    <string name="toast_sync_station_success"><!--TODO--></string>
+    <string name="toast_sync_station_failed"><!--TODO--></string>
+    <string name="toast_sync_location_success"><!--TODO--></string>
+    <string name="toast_sync_location_failed"><!--TODO--></string>
+
+    <string name="map_your_localization"><!--TODO--></string>
+    <string name="map_nearest_stations"><!--TODO--></string>
+    <string name="map_navigate_to_point"><!--TODO--></string>
+
+    <string name="menu_map"><!--TODO--></string>
+    <string name="menu_settings"><!--TODO--></string>
+    <string name="menu_find_connection"><!--TODO--></string>
+    <string name="menu_own_marks"><!--TODO--></string>
+    <string name="menu_update"><!--TODO--></string>
+    <string name="menu_station_list"><!--TODO--></string>
 </resources>
