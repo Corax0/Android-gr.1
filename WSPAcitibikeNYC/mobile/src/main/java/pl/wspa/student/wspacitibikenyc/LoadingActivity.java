@@ -22,24 +22,27 @@ public class LoadingActivity extends ActionBarActivity {
         taskInternet=true;
         taskLocation =true;
         taskDatabase=true;
-        if(LocationConnectionUtil.isConnectedToGPS(getApplicationContext())) {
-            //TODO wątek z lokalizacją
-            taskLocation =false;
+        if(LocationConnectionUtil.hasGpsModule(getApplicationContext())) {
+            if (LocationConnectionUtil.isConnectedToGPS(getApplicationContext())) {
+                //TODO wątek z lokalizacją
+                taskLocation = false;
+            } else {
+                if (!askLocation) {
+                    DialogFragment fragment = new LocationConnectionDialog() {
+                        @Override
+                        public void onDestroyView() {
+                            super.onDestroyView();
+                            taskLocation = false;
+                        }
+                    };
+                    fragment.show(getSupportFragmentManager(), "location");
+                } else {
+                    taskLocation = false;
+                }
+            }
         }
         else{
-            if(!askLocation){
-                DialogFragment fragment = new LocationConnectionDialog(){
-                    @Override
-                    public void onDestroyView() {
-                        super.onDestroyView();
-                        taskLocation =false;
-                    }
-                };
-                fragment.show(getSupportFragmentManager(), "location");
-            }
-            else{
-                taskLocation =false;
-            }
+            taskLocation = false;
         }
         if(InternetConnectionUtil.isConnectedToInternet(getApplicationContext())) {
             JSONAsyncTask json=new JSONAsyncTask(getApplicationContext());
