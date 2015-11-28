@@ -44,7 +44,7 @@ public class Station {
         this.lastCommunicationTime = lastCommunicationTime;
         this.landMark = landMark;
     }
-
+    /*konstruktor z parametrami Double dla latitude, longitude*/
     public Station(String id, String stationName, String availableDocks, String totalDocks, Double latitude, Double longitude, String statusValue, String statusKey, String availableBikes, String stAddress1, String stAddress2, String city, String postalCode, String location, String altitude, String testStation, String lastCommunicationTime, String landMark) {
         this.id = id;
         this.stationName = stationName;
