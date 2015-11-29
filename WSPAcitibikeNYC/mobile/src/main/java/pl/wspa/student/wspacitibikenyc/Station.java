@@ -23,6 +23,7 @@ public class Station {
     private String testStation;
     private String lastCommunicationTime;
     private String landMark;
+    private Double distance;
 
     public Station(String id, String stationName, String availableDocks, String totalDocks, String latitude, String longitude, String statusValue, String statusKey, String availableBikes, String stAddress1, String stAddress2, String city, String postalCode, String location, String altitude, String testStation, String lastCommunicationTime, String landMark){
         this.id = id;
@@ -174,5 +175,7 @@ public class Station {
     public void setLandMark(String landMark) {
         this.landMark = landMark;
     }
+    public double GetDistance() { return distance; }
+    public void setDistance(double d) { this.distance = distance; }
 }
 
