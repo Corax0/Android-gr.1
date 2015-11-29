@@ -25,7 +25,7 @@ public class Station {
     private String landMark;
     private Double distance;
 
-    public Station(String id, String stationName, String availableDocks, String totalDocks, String latitude, String longitude, String statusValue, String statusKey, String availableBikes, String stAddress1, String stAddress2, String city, String postalCode, String location, String altitude, String testStation, String lastCommunicationTime, String landMark){
+    public Station(String id, String stationName, String availableDocks, String totalDocks, String latitude, String longitude, String statusValue, String statusKey, String availableBikes, String stAddress1, String stAddress2, String city, String postalCode, String location, String altitude, String testStation, String lastCommunicationTime, String landMark, Double distance){
         this.id = id;
         this.stationName = stationName;
         this.availableDocks = availableDocks;
@@ -44,9 +44,10 @@ public class Station {
         this.testStation = testStation;
         this.lastCommunicationTime = lastCommunicationTime;
         this.landMark = landMark;
+        this.distance = distance;
     }
     /*konstruktor z parametrami Double dla latitude, longitude*/
-    public Station(String id, String stationName, String availableDocks, String totalDocks, Double latitude, Double longitude, String statusValue, String statusKey, String availableBikes, String stAddress1, String stAddress2, String city, String postalCode, String location, String altitude, String testStation, String lastCommunicationTime, String landMark) {
+    public Station(String id, String stationName, String availableDocks, String totalDocks, Double latitude, Double longitude, String statusValue, String statusKey, String availableBikes, String stAddress1, String stAddress2, String city, String postalCode, String location, String altitude, String testStation, String lastCommunicationTime, String landMark, Double distance) {
         this.id = id;
         this.stationName = stationName;
         this.availableDocks = availableDocks;
@@ -65,6 +66,7 @@ public class Station {
         this.testStation = testStation;
         this.lastCommunicationTime = lastCommunicationTime;
         this.landMark = landMark;
+        this.distance = distance;
     }
 
     public String getId() {
