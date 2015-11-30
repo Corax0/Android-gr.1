@@ -23,12 +23,31 @@ public class Station {
     private String testStation;
     private String lastCommunicationTime;
     private String landMark;
+    private Double distance;
 
-    public Station(){
-
+    public Station(String id, String stationName, String availableDocks, String totalDocks, String latitude, String longitude, String statusValue, String statusKey, String availableBikes, String stAddress1, String stAddress2, String city, String postalCode, String location, String altitude, String testStation, String lastCommunicationTime, String landMark, Double distance){
+        this.id = id;
+        this.stationName = stationName;
+        this.availableDocks = availableDocks;
+        this.totalDocks = totalDocks;
+        this.latitude = Double.parseDouble(latitude);
+        this.longitude = Double.parseDouble(longitude);
+        this.statusValue = statusValue;
+        this.statusKey = statusKey;
+        this.availableBikes = availableBikes;
+        this.stAddress1 = stAddress1;
+        this.stAddress2 = stAddress2;
+        this.city = city;
+        this.postalCode = postalCode;
+        this.location = location;
+        this.altitude = altitude;
+        this.testStation = testStation;
+        this.lastCommunicationTime = lastCommunicationTime;
+        this.landMark = landMark;
+        this.distance = distance;
     }
-
-    public Station(String id, String stationName, String availableDocks, String totalDocks, String latitude, String longitude, String statusValue, String statusKey, String availableBikes, String stAddress1, String stAddress2, String city, String postalCode, String location, String altitude, String testStation, String lastCommunicationTime, String landMark) {
+    /*konstruktor z parametrami Double dla latitude, longitude*/
+    public Station(String id, String stationName, String availableDocks, String totalDocks, Double latitude, Double longitude, String statusValue, String statusKey, String availableBikes, String stAddress1, String stAddress2, String city, String postalCode, String location, String altitude, String testStation, String lastCommunicationTime, String landMark, Double distance) {
         this.id = id;
         this.stationName = stationName;
         this.availableDocks = availableDocks;
@@ -47,6 +66,7 @@ public class Station {
         this.testStation = testStation;
         this.lastCommunicationTime = lastCommunicationTime;
         this.landMark = landMark;
+        this.distance = distance;
     }
 
     public String getId() {
@@ -76,13 +96,13 @@ public class Station {
     public String getLatitude() {
         return latitude;
     }
-    public void setLatitude(String latitude) {
+    public void setLatitude(Double latitude) {
         this.latitude = latitude;
     }
     public String getLongitude() {
         return longitude;
     }
-    public void setLongitude(String longitude) {
+    public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
     public String getStatusValue() {
@@ -157,5 +177,7 @@ public class Station {
     public void setLandMark(String landMark) {
         this.landMark = landMark;
     }
+    public double GetDistance() { return distance; }
+    public void setDistance(double d) { this.distance = distance; }
 }
 

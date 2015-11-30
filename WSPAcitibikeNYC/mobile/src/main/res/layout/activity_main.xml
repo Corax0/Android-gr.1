@@ -11,9 +11,9 @@
         android:id="@+id/menu_left_top_button"
         android:layout_alignParentTop="true"
         android:background="@drawable/menu_left_top_button"
-        android:textColor="#ffffff"
+        android:textColor="#ffdd00"
         android:textStyle="bold"
-        android:textSize="20sp"/>
+        android:textSize="20sp" />
 
     <Button
         android:layout_width="180dp"
@@ -24,7 +24,7 @@
         android:layout_alignParentEnd="true"
         android:layout_toEndOf="@+id/menu_left_top_button"
         android:background="@drawable/menu_right_top_button"
-        android:textColor="#ffffff"
+        android:textColor="#ffdd00"
         android:textStyle="bold"
         android:textSize="20sp"/>
 
@@ -35,7 +35,7 @@
         android:id="@+id/menu_left_center_button"
         android:layout_below="@+id/menu_left_top_button"
         android:background="@drawable/menu_left_center_button"
-        android:textColor="#ffffff"
+        android:textColor="#ffdd00"
         android:textStyle="bold"
         android:textSize="20sp"/>
 
@@ -47,7 +47,7 @@
         android:layout_below="@+id/menu_left_top_button"
         android:layout_toEndOf="@+id/menu_left_center_button"
         android:background="@drawable/menu_right_center_button"
-        android:textColor="#ffffff"
+        android:textColor="#ffdd00"
         android:textStyle="bold"
         android:textSize="20sp" />
 
@@ -59,7 +59,7 @@
         android:layout_below="@+id/menu_left_center_button"
         android:layout_alignParentStart="true"
         android:background="@drawable/menu_left_bottom_button"
-        android:textColor="#ffffff"
+        android:textColor="#ffdd00"
         android:textStyle="bold"
         android:textSize="20sp"/>
 
@@ -72,7 +72,7 @@
         android:layout_below="@+id/menu_left_center_button"
         android:layout_alignParentEnd="true"
         android:background="@drawable/menu_right_bottom_button"
-        android:textColor="#ffffff"
+        android:textColor="#ffdd00"
         android:textStyle="bold"
         android:textSize="20sp"/>
 </RelativeLayout>
