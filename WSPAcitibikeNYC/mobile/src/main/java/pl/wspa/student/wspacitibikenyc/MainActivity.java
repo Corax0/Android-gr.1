@@ -19,16 +19,15 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         startActivityForResult(new Intent(this, LoadingActivity.class), APPLICATION_START);
 
-      /*  /////////////// Kod do przechodzenia do innej aktywności po naciśnięciu guzika, na youtube dziala, u mnie nie i nie wiem jak to naprawić.
-                          Po kliknięciu na przycisk Aktualizacja powinna wyskoczyć jedna stacja //////////////////
+        /////////////// Kod do przechodzenia do innej aktywności po naciśnięciu guzika, na youtube dziala, u mnie nie i nie wiem jak to naprawić.
+                          //Po kliknięciu na przycisk Aktualizacja powinna wyskoczyć jedna stacja //////////////////
 
-      Button update = (Button) findViewById(R.id.menu_right_bottom_button);
-        update.setOnClickListener(new View.OnClickListener() {
+      Button mapButt = (Button) findViewById(R.id.menu_right_top_button);
+        mapButt.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), StationMapActivity.class);
-                startActivityForResult(intent, 0);
+                startActivity(new Intent(v.getContext(), StationMapActivity.class));
             }
-        });*/
+        });
     }
 
 

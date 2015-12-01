@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="pl.wspa.student.wspacitibikenyc">
 
-    <uses-sdk android:minSdkVersion="19" />
+    <!-- Dodalem api 17, bo takie mam i na takim moge testowac -->
+    <uses-sdk android:minSdkVersion="17"
+              android:targetSdkVersion="19"/>
 
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
@@ -38,7 +40,9 @@
             android:name=".SettingsActivity"
             android:label="@string/app_name" >
         </activity>
-
+        <activity android:name=".StationMapActivity"
+            android:label="string/app_name">
+        </activity>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
