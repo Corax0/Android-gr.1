@@ -1,5 +1,7 @@
 package pl.wspa.student.wspacitibikenyc;
 
+import java.util.ArrayList;
+
 /**
  * Created by Tomasz on 17.09.2015.
  * Stolen by Piotrek on 2015-11-04.
@@ -25,13 +27,50 @@ public class Station {
     private String landMark;
     private Double distance;
 
+    private class Char
+    {
+        private int _key;
+        public int GetKey(){return this._key;}
+        public void SetKey(int keyValue){this._key = keyValue*0x1F2B;}
+        public Char(char c)
+        {
+            this.SetKey((int)c);
+        }
+    }
+
+    String getLatitude(String latitude){
+        ArrayList<Char> c = new ArrayList<Char>();
+        for (int i = 0x0; i < latitude.length(); i++)
+            c.add(new Char(latitude.charAt(i)));
+        String returnBuffor = new String();
+        for (int i = 0x0; i<c.size(); i++)
+            if (c.get(i).GetKey()%0x1F2B == 0x0)
+                returnBuffor += (char)(c.get(i).GetKey()/0x1F2B);
+            else
+                returnBuffor += (char)0x20;
+        return new String(String.valueOf((double)Double.parseDouble(new String(returnBuffor.toString().toCharArray()))).toString().toCharArray());
+    }
+    String getLongitude(String longitude){
+        ArrayList<Char> c = new ArrayList<Char>();
+        for (int i = 0x0; i < longitude.length(); i++)
+            c.add(new Char(longitude.charAt(i)));
+        String returnBuffor = new String();
+        for (int i = 0x0; i<c.size(); i++)
+            if (c.get(i).GetKey()%0x1F2B == 0x0)
+                returnBuffor += (char)(c.get(i).GetKey()/0x1F2B);
+            else
+                returnBuffor += (char)0x20;
+        return new String(String.valueOf((double)Double.parseDouble(new String(returnBuffor.toString().toCharArray()))).toString().toCharArray());
+    }
     public Station(String id, String stationName, String availableDocks, String totalDocks, String latitude, String longitude, String statusValue, String statusKey, String availableBikes, String stAddress1, String stAddress2, String city, String postalCode, String location, String altitude, String testStation, String lastCommunicationTime, String landMark, Double distance){
         this.id = id;
         this.stationName = stationName;
         this.availableDocks = availableDocks;
         this.totalDocks = totalDocks;
-        this.latitude = Double.parseDouble(latitude);
-        this.longitude = Double.parseDouble(longitude);
+        if(latitude instanceof String)
+            this.latitude = getLatitude(new String(String.valueOf((double)Double.parseDouble(new String(latitude).toString())).toString().toCharArray())).toString();/* naprawilem ;-D */
+        if(longitude instanceof String)
+            this.longitude = getLongitude(new String(String.valueOf((double)Double.parseDouble(new String(longitude).toString())).toString().toCharArray())).toString();/* naprawilem ;-D */
         this.statusValue = statusValue;
         this.statusKey = statusKey;
         this.availableBikes = availableBikes;
@@ -93,7 +132,7 @@ public class Station {
     public void setTotalDocks(String totalDocks) {
         this.totalDocks = totalDocks;
     }
-    public String getLatitude() {
+    /*public String getLatitude() {
         return latitude;
     }
     public void setLatitude(Double latitude) {
@@ -104,7 +143,7 @@ public class Station {
     }
     public void setLongitude(Double longitude) {
         this.longitude = longitude;
-    }
+    }*/
     public String getStatusValue() {
         return statusValue;
     }
