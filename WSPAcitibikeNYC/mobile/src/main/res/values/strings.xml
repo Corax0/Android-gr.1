@@ -3,8 +3,20 @@
     <string name="app_name">WSPA City Bike NY</string>
 
     <string name="action_settings">Settings</string>
+    <string name="action_refresh">Refresh</string>
 
-    <string name="row_station_name">Station name</string>
+    <string name="station_status_value_1">In service</string>
+    <string name="station_status_value_2">Planned</string>
+    <string name="station_status_value_3">Out of service</string>
+
+    <string name="row_station_name">Station name:</string>
+    <string name="row_station_id">Id:</string>
+    <string name="row_station_status">Status:</string>
+    <string name="row_station_last_updated">Last updated:</string>
+    <string name="row_station_available_bikes">Available bikes:</string>
+    <string name="row_station_available_docks">Available docks:</string>
+    <string name="row_station_show">Show</string>
+    <string name="row_station_navigate">Navigate</string>
 
     <string name="settings_internet_off_title">Internet</string>
     <string name="settings_internet_off_summary">Application does not ask about internet connection</string>

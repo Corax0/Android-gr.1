@@ -14,7 +14,7 @@ public class Station {
     private double latitude;
     private double longitude;
     private String statusValue;
-    private String statusKey;
+    private int statusKey;
     private String availableBikes;
     private String stAddress1;
     private String stAddress2;
@@ -28,26 +28,26 @@ public class Station {
     private Double distance;
 
     public Station(String id, String stationName, String availableDocks, String totalDocks, String latitude, String longitude, String statusValue, String statusKey, String availableBikes, String stAddress1, String stAddress2, String city, String postalCode, String location, String altitude, String testStation, String lastCommunicationTime, String landMark){
-        this.id = id;
-        this.stationName = stationName;
-        this.availableDocks = availableDocks;
-        this.totalDocks = totalDocks;
-        this.latitude = Double.parseDouble(latitude);
-        this.longitude = Double.parseDouble(longitude);
-        this.statusValue = statusValue;
-        this.statusKey = statusKey;
-        this.availableBikes = availableBikes;
-        this.stAddress1 = stAddress1;
-        this.stAddress2 = stAddress2;
-        this.city = city;
-        this.postalCode = postalCode;
-        this.location = location;
-        this.altitude = altitude;
-        this.testStation = testStation;
-        this.lastCommunicationTime = lastCommunicationTime;
-        this.landMark = landMark;
+        this(id,
+                stationName,
+                availableDocks,
+                totalDocks,
+                Double.parseDouble(latitude),
+                Double.parseDouble(longitude),
+                statusValue,
+                Integer.parseInt(statusKey),
+                availableBikes,
+                stAddress1,
+                stAddress2,
+                city,
+                postalCode,
+                location,
+                altitude,
+                testStation,
+                lastCommunicationTime,
+                landMark);
     }
-    public Station(String id, String stationName, String availableDocks, String totalDocks, double latitude, double longitude, String statusValue, String statusKey, String availableBikes, String stAddress1, String stAddress2, String city, String postalCode, String location, String altitude, String testStation, String lastCommunicationTime, String landMark) {
+    public Station(String id, String stationName, String availableDocks, String totalDocks, double latitude, double longitude, String statusValue, int statusKey, String availableBikes, String stAddress1, String stAddress2, String city, String postalCode, String location, String altitude, String testStation, String lastCommunicationTime, String landMark) {
         this.id = id;
         this.stationName = stationName;
         this.availableDocks = availableDocks;
@@ -55,6 +55,9 @@ public class Station {
         this.latitude = latitude;
         this.longitude = longitude;
         this.statusValue = statusValue;
+        if(statusKey==3)
+            if(lastCommunicationTime.equals("1969-12-31 07:00:00 PM"))
+                statusKey=2;
         this.statusKey = statusKey;
         this.availableBikes = availableBikes;
         this.stAddress1 = stAddress1;
@@ -110,10 +113,10 @@ public class Station {
     public void setStatusValue(String statusValue) {
         this.statusValue = statusValue;
     }
-    public String getStatusKey() {
+    public int getStatusKey() {
         return statusKey;
     }
-    public void setStatusKey(String statusKey) {
+    public void setStatusKey(int statusKey) {
         this.statusKey = statusKey;
     }
     public String getAvailableBikes() {

@@ -12,10 +12,10 @@ public class DataSaver
     {
         if (_stationArrayList == null)
         {
-            if (JSONAsyncTask.stationArrayList == null)
-                ;//TODO tutaj daæ pobranie danych z backupu w sqlite
+            if (MainActivity.stationArrayList == null)
+                ;//TODO tutaj dac pobranie danych z backupu w sqlite
             else
-                _stationArrayList = JSONAsyncTask.stationArrayList;
+                _stationArrayList = MainActivity.stationArrayList;
         }
         return _stationArrayList;
     }

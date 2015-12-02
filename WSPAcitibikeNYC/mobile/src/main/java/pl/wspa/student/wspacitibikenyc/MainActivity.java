@@ -8,10 +8,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.ArrayList;
+
 
 public class MainActivity extends ActionBarActivity {
     public static final int APPLICATION_START=1,
                                RESULT_LOADED=2;
+
+    public static ArrayList<Station> stationArrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +30,12 @@ public class MainActivity extends ActionBarActivity {
         mapButt.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 startActivity(new Intent(v.getContext(), StationMapActivity.class));
+            }
+        });
+        Button listButt = (Button) findViewById(R.id.menu_left_center_button);
+        listButt.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                startActivity(new Intent(v.getContext(), StationListActivity.class));
             }
         });
     }

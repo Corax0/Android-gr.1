@@ -25,7 +25,6 @@ import java.util.ArrayList;
 class JSONAsyncTask extends AsyncTask<String, Void, Boolean>
 {
     private Context context;
-    public static ArrayList<Station> stationArrayList;
 
     public JSONAsyncTask(Context context){
         super();
@@ -39,8 +38,8 @@ class JSONAsyncTask extends AsyncTask<String, Void, Boolean>
 
     @Override
     protected Boolean doInBackground(String... urls) {
-        if(stationArrayList == null)
-            stationArrayList = new ArrayList<Station>();
+        if(MainActivity.stationArrayList == null)
+            MainActivity.stationArrayList = new ArrayList<Station>();
 
         try {
             HttpGet httppost = new HttpGet(urls[0]);
@@ -75,7 +74,7 @@ class JSONAsyncTask extends AsyncTask<String, Void, Boolean>
                             object.getString("testStation"),
                             object.getString("lastCommunicationTime"),
                             object.getString("landMark"));
-                    stationArrayList.add(station);
+                    MainActivity.stationArrayList.add(station);
                 }
                 return true;
             }

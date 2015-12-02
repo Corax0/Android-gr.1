@@ -3,8 +3,20 @@
     <string name="app_name">WSPA City Bike NY<!--TODO maybe in kazakh?--></string>
 
     <string name="action_settings">Келтіру</string>
+    <string name="action_refresh"><!--TODO--></string>
 
-    <string name="row_station_name">Аялдама аты </string>
+    <string name="station_status_value_1"><!--TODO--></string>
+    <string name="station_status_value_2"><!--TODO--></string>
+    <string name="station_status_value_3"><!--TODO--></string>
+
+    <string name="row_station_name">Аялдама аты:</string>
+    <string name="row_station_id"><!--TODO-->:</string>
+    <string name="row_station_status"><!--TODO-->:</string>
+    <string name="row_station_last_updated"><!--TODO-->:</string>
+    <string name="row_station_available_bikes"><!--TODO-->:</string>
+    <string name="row_station_available_docks"><!--TODO-->:</string>
+    <string name="row_station_show"><!--TODO--></string>
+    <string name="row_station_navigate"><!--TODO--></string>
 
     <string name="settings_internet_off_title">Интернет</string>
     <string name="settings_internet_off_summary">Тексеріңіз интернетке қосылу</string>
