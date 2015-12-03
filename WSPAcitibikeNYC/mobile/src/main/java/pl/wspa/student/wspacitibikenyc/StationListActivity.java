@@ -21,7 +21,7 @@ public class StationListActivity extends ActionBarActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_station);
         listView = (ListView)findViewById(R.id.list);
-        adapter=new StationAdapter(getApplicationContext(),R.layout.row_station,MainActivity.stationArrayList);
+        adapter=new StationAdapter(getApplicationContext(),MainActivity.stationArrayList);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
