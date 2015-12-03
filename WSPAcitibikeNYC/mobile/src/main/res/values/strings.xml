@@ -9,12 +9,12 @@
     <string name="station_status_value_2">Planned</string>
     <string name="station_status_value_3">Out of service</string>
 
-    <string name="row_station_name">Station name:</string>
-    <string name="row_station_id">Id:</string>
-    <string name="row_station_status">Status:</string>
-    <string name="row_station_last_updated">Last updated:</string>
-    <string name="row_station_available_bikes">Available bikes:</string>
-    <string name="row_station_available_docks">Available docks:</string>
+    <string name="row_station_name">Station name</string>
+    <string name="row_station_id">Id</string>
+    <string name="row_station_status">Status</string>
+    <string name="row_station_last_updated">Last updated</string>
+    <string name="row_station_available_bikes">Available bikes</string>
+    <string name="row_station_available_docks">Available docks</string>
     <string name="row_station_show">Show</string>
     <string name="row_station_navigate">Navigate</string>
 

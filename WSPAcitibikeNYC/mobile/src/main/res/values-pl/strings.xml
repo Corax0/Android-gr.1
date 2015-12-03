@@ -9,12 +9,12 @@
     <string name="station_status_value_2">Planowane</string>
     <string name="station_status_value_3">Nie czynne</string>
 
-    <string name="row_station_name">Nazwa stacji:</string>
-    <string name="row_station_id">Id:</string>
-    <string name="row_station_status">Status:</string>
-    <string name="row_station_last_updated">Zaktualizowano:</string>
-    <string name="row_station_available_bikes">Dostępne rowery:</string>
-    <string name="row_station_available_docks">Dostępne miejsca:</string>
+    <string name="row_station_name">Nazwa stacji</string>
+    <string name="row_station_id">Id</string>
+    <string name="row_station_status">Status</string>
+    <string name="row_station_last_updated">Zaktualizowano</string>
+    <string name="row_station_available_bikes">Dostępne rowery</string>
+    <string name="row_station_available_docks">Dostępne miejsca</string>
     <string name="row_station_show">Pokaż</string>
     <string name="row_station_navigate">Nawiguj</string>
 

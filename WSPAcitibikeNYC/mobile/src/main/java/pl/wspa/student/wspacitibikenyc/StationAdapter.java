@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -25,7 +26,7 @@ public class StationAdapter extends ArrayAdapter<Station> {
         private TextView stationName;
         private TextView availableDocks;
         private TextView totalDocks;
-        private TextView statusValue;
+        private View statusValue;
         private TextView availableBikes;
         private TextView lastCommunicationTime;
         private TextView distance;
@@ -59,7 +60,7 @@ public class StationAdapter extends ArrayAdapter<Station> {
             holder.stationName = (TextView) v.findViewById(R.id.rs_value_stationName);
             holder.availableDocks = (TextView) v.findViewById(R.id.rs_value_availableDocks);
             holder.totalDocks = (TextView) v.findViewById(R.id.rs_value_totalDocks);
-            holder.statusValue = (TextView) v.findViewById(R.id.rs_value_statusValue);
+            holder.statusValue = v.findViewById(R.id.rs_value_statusValue);
             holder.availableBikes = (TextView) v.findViewById(R.id.rs_value_availableBikes);
             holder.lastCommunicationTime = (TextView) v.findViewById(R.id.rs_value_lastCommunicationTime);
             holder.distance = (TextView) v.findViewById(R.id.rs_value_distance);
@@ -79,16 +80,25 @@ public class StationAdapter extends ArrayAdapter<Station> {
                 holder.totalDocks.setText(s.getTotalDocks());
                 holder.availableBikes.setText(s.getAvailableBikes());
                 holder.lastCommunicationTime.setText(s.getLastCommunicationTime());
-                holder.statusValue.setText(R.string.station_status_value_1);
+                if(holder.statusValue instanceof TextView)
+                    ((TextView)holder.statusValue).setText(R.string.station_status_value_1);
+                else
+                    ((ImageView)holder.statusValue).setImageResource(android.R.drawable.presence_online);
                 break;
             case 2:
-                holder.statusValue.setText(R.string.station_status_value_2);
+                if(holder.statusValue instanceof TextView)
+                    ((TextView)holder.statusValue).setText(R.string.station_status_value_2);
+                else
+                    ((ImageView)holder.statusValue).setImageResource(android.R.drawable.presence_away);
                 holder.layoutAvailableDocks.setVisibility(View.GONE);
                 holder.layoutAvailableBikes.setVisibility(View.GONE);
                 holder.layoutLastCommunicationTime.setVisibility(View.GONE);
                 break;
             case 3:
-                holder.statusValue.setText(R.string.station_status_value_3);
+                if(holder.statusValue instanceof TextView)
+                    ((TextView)holder.statusValue).setText(R.string.station_status_value_3);
+                else
+                    ((ImageView)holder.statusValue).setImageResource(android.R.drawable.presence_busy);
                 holder.lastCommunicationTime.setText(s.getLastCommunicationTime());
                 holder.layoutAvailableDocks.setVisibility(View.GONE);
                 holder.layoutAvailableBikes.setVisibility(View.GONE);
