@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
@@ -25,7 +26,7 @@ import java.util.ArrayList;
 class JSONAsyncTask extends AsyncTask<String, Void, Boolean>
 {
     private Context context;
-
+    private ArrayList<Station> stationArrayList;
     public JSONAsyncTask(Context context){
         super();
         this.context=context;
@@ -38,8 +39,6 @@ class JSONAsyncTask extends AsyncTask<String, Void, Boolean>
 
     @Override
     protected Boolean doInBackground(String... urls) {
-        if(MainActivity.stationArrayList == null)
-            MainActivity.stationArrayList = new ArrayList<Station>();
 
         try {
             HttpGet httppost = new HttpGet(urls[0]);
@@ -52,7 +51,7 @@ class JSONAsyncTask extends AsyncTask<String, Void, Boolean>
                 String data = EntityUtils.toString(entity);
                 JSONObject jasonObj = new JSONObject(data);
                 JSONArray jsonArray = jasonObj.getJSONArray("stationBeanList");
-
+                stationArrayList=new ArrayList<Station>();
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject object = jsonArray.getJSONObject(i);
                     Station station = new Station(
@@ -74,15 +73,17 @@ class JSONAsyncTask extends AsyncTask<String, Void, Boolean>
                             object.getString("testStation"),
                             object.getString("lastCommunicationTime"),
                             object.getString("landMark"));
-                    MainActivity.stationArrayList.add(station);
+                    stationArrayList.add(station);
                 }
                 return true;
             }
 
 
-        } catch (IOException e) {
-            e.printStackTrace();
         } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (ClientProtocolException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
@@ -94,9 +95,9 @@ class JSONAsyncTask extends AsyncTask<String, Void, Boolean>
     @Override
     protected void onPostExecute(Boolean aBoolean) {
         super.onPostExecute(aBoolean);
-        //TODO adapter.notifyDataSetChanged();
         if (aBoolean){
-            Toast.makeText(context,R.string.toast_sync_station_success , Toast.LENGTH_LONG).show();
+            MainActivity.stationArrayList=stationArrayList;
+            Toast.makeText(context,R.string.toast_sync_station_success, Toast.LENGTH_LONG).show();
         }
         else{
             Toast.makeText(context,R.string.toast_sync_station_failed,Toast.LENGTH_LONG).show();

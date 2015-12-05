@@ -48,7 +48,7 @@ public class InternetConnectionDialog extends ConnectionDialog {
         if(checkBox.isChecked()){
             SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
             SharedPreferences.Editor editor = settings.edit();
-            editor.putBoolean(SettingsActivity.KEY_INTERNET_OFF, true);
+            editor.putBoolean(SettingsUtil.KEY_INTERNET_OFF, true);
             editor.commit();
         }
     }

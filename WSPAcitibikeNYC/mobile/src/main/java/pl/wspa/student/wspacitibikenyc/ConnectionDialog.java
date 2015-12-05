@@ -15,7 +15,7 @@ import android.widget.TextView;
  * Created by Karolina i Daniel on 2015-11-22.
  */
 public abstract class ConnectionDialog extends DialogFragment {
-    private boolean clickResult=true;
+    private boolean clickResult;
     protected CheckBox checkBox;
     protected TextView message;
     View view;
@@ -23,6 +23,7 @@ public abstract class ConnectionDialog extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
+        clickResult=true;
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
                     @Override

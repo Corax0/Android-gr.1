@@ -19,6 +19,9 @@ public class MainActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if(stationArrayList==null){
+            stationArrayList=new ArrayList<Station>();
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         startActivityForResult(new Intent(this, LoadingActivity.class), APPLICATION_START);
@@ -26,7 +29,7 @@ public class MainActivity extends ActionBarActivity {
         /////////////// Kod do przechodzenia do innej aktywności po naciśnięciu guzika, na youtube dziala, u mnie nie i nie wiem jak to naprawić.
                           //Po kliknięciu na przycisk Aktualizacja powinna wyskoczyć jedna stacja //////////////////
 
-      Button mapButt = (Button) findViewById(R.id.menu_right_top_button);
+        Button mapButt = (Button) findViewById(R.id.menu_right_top_button);
         mapButt.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 startActivity(new Intent(v.getContext(), StationMapActivity.class));

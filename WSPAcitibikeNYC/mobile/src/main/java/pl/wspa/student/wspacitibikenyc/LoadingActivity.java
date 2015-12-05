@@ -1,69 +1,32 @@
 package pl.wspa.student.wspacitibikenyc;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.support.v4.app.DialogFragment;
 import android.support.v7.app.ActionBarActivity;
 
 
 public class LoadingActivity extends ActionBarActivity {
-    private boolean askInternet, askLocation;
     private boolean taskInternet, taskLocation,taskDatabase;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
-
-        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(this);
-        askInternet =settings.getBoolean(SettingsActivity.KEY_INTERNET_OFF, false);
-        askLocation =settings.getBoolean(SettingsActivity.KEY_LOCATION_OFF, false);
+        SettingsUtil.loadSettings(getApplicationContext());
         taskInternet=true;
         taskLocation =true;
         taskDatabase=true;
-        if(LocationConnectionUtil.hasGpsModule(getApplicationContext())) {
-            if (LocationConnectionUtil.isConnectedToGPS(getApplicationContext())) {
-                //TODO wątek z lokalizacją
-                taskLocation = false;
-            } else {
-                if (!askLocation) {
-                    DialogFragment fragment = new LocationConnectionDialog() {
-                        @Override
-                        public void onDestroyView() {
-                            super.onDestroyView();
-                            taskLocation = false;
-                        }
-                    };
-                    fragment.show(getSupportFragmentManager(), "location");
-                } else {
-                    taskLocation = false;
-                }
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                taskLocation=!LocationConnectionUtil.updateLocationData(getApplicationContext(),getSupportFragmentManager());
             }
-        }
-        else{
-            taskLocation = false;
-        }
-        if(InternetConnectionUtil.isConnectedToInternet(getApplicationContext())) {
-            JSONAsyncTask json=new JSONAsyncTask(getApplicationContext());
-            json.execute(InternetConnectionUtil.NY_CITY_BIKE_URL);
-            taskInternet=false;
-        }
-        else {
-            if(!askInternet) {
-                DialogFragment fragment = new InternetConnectionDialog(){
-                    @Override
-                    public void onDestroyView() {
-                        super.onDestroyView();
-                        taskInternet=false;
-                    }
-                };
-                fragment.show(getSupportFragmentManager(), "internet");
+        }).start();
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                taskInternet=!InternetConnectionUtil.updateStationFromJSON(getApplicationContext(),getSupportFragmentManager());
             }
-            else{
-                taskInternet=false;
-            }
-        }
+        }).start();
         //TODO SQL, i jakies inne pierdy
         taskDatabase=false;
         new Thread(new Runnable() {

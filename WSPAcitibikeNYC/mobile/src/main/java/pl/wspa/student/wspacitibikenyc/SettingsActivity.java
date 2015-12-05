@@ -13,9 +13,6 @@ import android.util.Log;
  * Created by Karolina i Daniel on 2015-11-24.
  */
 public class SettingsActivity extends Activity {
-    public static final String KEY_INTERNET_OFF="internet_off",
-                               KEY_LOCATION_OFF="location_off";
-
     public static class SettingsFragment extends PreferenceFragment{
         @Override
         public void onCreate(Bundle savedInstanceState) {

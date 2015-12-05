@@ -31,6 +31,7 @@
     <string name="toast_sync_station_failed">Update failure</string>
     <string name="toast_sync_location_success"><!--TODO--></string>
     <string name="toast_sync_location_failed"><!--TODO--></string>
+    <string name="toast_sync_inProgress">Please wait... Executing operations</string>
 
     <!--zachowywac jakos nazewnictwo!-->
     <string name="map_your_localization">Twoja \nlokalizacja</string>

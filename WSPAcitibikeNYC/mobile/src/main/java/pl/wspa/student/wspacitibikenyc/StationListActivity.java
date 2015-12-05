@@ -7,6 +7,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 /**
  * Created by Daniel on 2015-12-02.
@@ -48,9 +49,26 @@ public class StationListActivity extends ActionBarActivity{
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_refresh) {
-            JSONAsyncTask json=new JSONAsyncTask(getApplicationContext());
-            json.execute(InternetConnectionUtil.NY_CITY_BIKE_URL);
-            adapter.notifyDataSetChanged();
+            if(!InternetConnectionUtil.isUpdatingStations()) {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        InternetConnectionUtil.updateStationFromJSON(getApplicationContext(), getSupportFragmentManager());
+                        if (InternetConnectionUtil.isUpdatingStations()) {
+                            while (InternetConnectionUtil.isUpdatingStations()) {
+                            }
+                            try {
+                                adapter.notifyDataSetChanged();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                }).start();
+            }
+            else {
+                Toast.makeText(getApplicationContext(), R.string.toast_sync_inProgress, Toast.LENGTH_SHORT).show();
+            }
             return true;
         }
 

@@ -31,6 +31,7 @@
     <string name="toast_sync_station_failed"><!--TODO--></string>
     <string name="toast_sync_location_success"><!--TODO--></string>
     <string name="toast_sync_location_failed"><!--TODO--></string>
+    <string name="toast_sync_inProgress"><!--TODO--></string>
 
     <string name="map_your_localization"><!--TODO--></string>
     <string name="map_nearest_stations"><!--TODO--></string>

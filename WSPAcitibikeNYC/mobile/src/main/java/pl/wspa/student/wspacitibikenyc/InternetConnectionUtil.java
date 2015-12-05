@@ -3,6 +3,9 @@ package pl.wspa.student.wspacitibikenyc;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentManager;
+import android.util.Log;
 
 /**
  * Created by Karolina i Daniel on 2015-11-22.
@@ -13,6 +16,9 @@ public class InternetConnectionUtil {
     public static int TYPE_WIFI = 1;
     public static int TYPE_MOBILE = 2;
     public static int TYPE_NOT_CONNECTED = 0;
+
+    private static boolean updatingStations=false;
+    private static boolean freeze=false;
 
     public static boolean isConnectedToInternet(Context context){
         ConnectivityManager cm =(ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -46,5 +52,61 @@ public class InternetConnectionUtil {
             status = "Not connected to Internet";
         }
         return status;
+    }
+
+    /**
+     * Funkcja do łączenia i pobierania danych z internetu, jeśli nie jest wyłączona opcja pytania się użytkownika o połączenie się z internetem, wyświetla się alert.
+     * UWAGA! Należy używać tej metody w oddzielnym wątku np:
+     *
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                InternetConnectionUtil.updateStationFromJSON(getApplicationContext(),getSupportFragmentManager());
+            }
+        }).start();
+     *
+     * @param context context aktywności
+     * @param supportFragmentManager supportFragmentManager aktywności
+     * @return zwraca true po zakonczeniu pobierania lub pytania sie o pobieranie
+     */
+    public static boolean updateStationFromJSON(Context context,FragmentManager supportFragmentManager){
+        if(isConnectedToInternet(context)) {
+            updatingStations = true;
+            JSONAsyncTask json = new JSONAsyncTask(context) {
+                @Override
+                protected void onPostExecute(Boolean aBoolean) {
+                    super.onPostExecute(aBoolean);
+                    updatingStations = false;
+                }
+            };
+            json.execute(NY_CITY_BIKE_URL);
+        }
+        else {
+            if(!SettingsUtil.askInternet) {
+                freeze=true;
+                DialogFragment fragment = new InternetConnectionDialog(){
+                    @Override
+                    public void onDestroyView() {
+                        super.onDestroyView();
+                        freeze = false;
+                    }
+                    @Override
+                    public void addBroadcastRegisterOperations() {
+                        updatingStations =false;
+                    }
+                };
+                try {
+                    fragment.show(supportFragmentManager, "internet");
+                    while(freeze){}
+                } catch (ClassCastException e) {
+                    Log.e("INTERNET_UTIL", "Can't get fragment manager");
+                }
+            }
+        }
+        return true;
+    }
+
+    public static boolean isUpdatingStations() {
+        return updatingStations;
     }
 }
