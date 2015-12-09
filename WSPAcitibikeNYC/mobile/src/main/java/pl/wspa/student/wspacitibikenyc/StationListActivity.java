@@ -1,6 +1,7 @@
 package pl.wspa.student.wspacitibikenyc;
 
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,7 +28,9 @@ public class StationListActivity extends ActionBarActivity{
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                //TODO zmiana wyglądu na row_station_extended
+                DialogFragment fragment = new StationInfoDialog();
+                ((StationInfoDialog)fragment).setStation(adapter.getItem(position));
+                fragment.show(getSupportFragmentManager(), "station");
             }
         });
     }

@@ -15,6 +15,7 @@
     <string name="row_station_last_updated"><!--TODO--></string>
     <string name="row_station_available_bikes"><!--TODO--></string>
     <string name="row_station_available_docks"><!--TODO--></string>
+    <string name="row_station_distance"><!--TODO--></string>
     <string name="row_station_show"><!--TODO--></string>
     <string name="row_station_navigate"><!--TODO--></string>
 
@@ -26,6 +27,7 @@
     <string name="dialog_checkbox_message"><!--TODO--></string>
     <string name="dialog_internet_message"><!--TODO--></string>
     <string name="dialog_location_message"><!--TODO--></string>
+    <string name="dialog_station_info_title"><!--TODO--></string>
 
     <string name="toast_sync_station_success"><!--TODO--></string>
     <string name="toast_sync_station_failed"><!--TODO--></string>

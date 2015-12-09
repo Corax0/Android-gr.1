@@ -15,6 +15,7 @@
     <string name="row_station_last_updated">Last updated</string>
     <string name="row_station_available_bikes">Available bikes</string>
     <string name="row_station_available_docks">Available docks</string>
+    <string name="row_station_distance">Distance</string>
     <string name="row_station_show">Show</string>
     <string name="row_station_navigate">Navigate</string>
 
@@ -26,6 +27,7 @@
     <string name="dialog_checkbox_message">Do not ask again</string>
     <string name="dialog_internet_message">Internet connection is not enabled. Connect to internet?</string>
     <string name="dialog_location_message">Location connection is not enabled. Go to Location Settings?</string>
+    <string name="dialog_station_info_title">Station info</string>
 
     <string name="toast_sync_station_success">Stations updated</string>
     <string name="toast_sync_station_failed">Update failure</string>

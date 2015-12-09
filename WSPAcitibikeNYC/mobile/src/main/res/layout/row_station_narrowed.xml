@@ -199,7 +199,8 @@
                 android:orientation="horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/rs_layout_buttons">
+                android:id="@+id/rs_layout_buttons"
+                android:descendantFocusability="blocksDescendants">
 
                 <Button
                     android:id="@+id/rs_show"

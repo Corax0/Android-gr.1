@@ -22,16 +22,13 @@ public class StationView extends LinearLayout{
     private TextView stationName;
     private TextView availableDocks;
     private TextView totalDocks;
-    private View statusValue;
+    private ImageView statusValue;
     private TextView availableBikes;
     private TextView lastCommunicationTime;
     private TextView distance;
     private TextView unit;
     private Button show;
     private Button navigate;
-
-    boolean extended;
-    Station station;
 
     public StationView(Context context) {
         super(context);
@@ -49,15 +46,8 @@ public class StationView extends LinearLayout{
     }
 
     private void init(){
-        extended=false;
-        setupLayout();
+        LayoutInflater.from(getContext()).inflate(R.layout.row_station_narrowed, this, true);
         setupChildren();
-    }
-    private void setupLayout(){
-        if(extended)
-            LayoutInflater.from(getContext()).inflate(R.layout.row_station_extended, this, true);
-        else
-            LayoutInflater.from(getContext()).inflate(R.layout.row_station_narrowed, this, true);
     }
     private void setupChildren() {
         layoutAvailableDocks = (LinearLayout)findViewById(R.id.rs_layout_availableDocks);
@@ -68,7 +58,7 @@ public class StationView extends LinearLayout{
         stationName = (TextView)findViewById(R.id.rs_value_stationName);
         availableDocks = (TextView)findViewById(R.id.rs_value_availableDocks);
         totalDocks = (TextView)findViewById(R.id.rs_value_totalDocks);
-        statusValue =findViewById(R.id.rs_value_statusValue);
+        statusValue =(ImageView)findViewById(R.id.rs_value_statusValue);
         availableBikes = (TextView)findViewById(R.id.rs_value_availableBikes);
         lastCommunicationTime = (TextView)findViewById(R.id.rs_value_lastCommunicationTime);
         distance = (TextView)findViewById(R.id.rs_value_distance);
@@ -77,7 +67,6 @@ public class StationView extends LinearLayout{
         navigate = (Button)findViewById(R.id.rs_navigate);
     }
     public void setStation(Station s){
-        station=s;
         id.setText(s.getId());
         stationName.setText(s.getStationName());
         switch(s.getStatusKey()){
@@ -86,25 +75,19 @@ public class StationView extends LinearLayout{
                 totalDocks.setText(s.getTotalDocks());
                 availableBikes.setText(s.getAvailableBikes());
                 lastCommunicationTime.setText(s.getLastCommunicationTime());
-                if(statusValue instanceof TextView)
-                    ((TextView)statusValue).setText(R.string.station_status_value_1);
-                else
-                    ((ImageView)statusValue).setImageResource(android.R.drawable.presence_online);
+                statusValue.setImageResource(android.R.drawable.presence_online);
+                layoutAvailableDocks.setVisibility(View.VISIBLE);
+                layoutAvailableBikes.setVisibility(View.VISIBLE);
+                layoutLastCommunicationTime.setVisibility(View.VISIBLE);
                 break;
             case 2:
-                if(statusValue instanceof TextView)
-                    ((TextView)statusValue).setText(R.string.station_status_value_2);
-                else
-                    ((ImageView)statusValue).setImageResource(android.R.drawable.presence_away);
+                statusValue.setImageResource(android.R.drawable.presence_away);
                 layoutAvailableDocks.setVisibility(View.GONE);
                 layoutAvailableBikes.setVisibility(View.GONE);
                 layoutLastCommunicationTime.setVisibility(View.GONE);
                 break;
             case 3:
-                if(statusValue instanceof TextView)
-                    ((TextView)statusValue).setText(R.string.station_status_value_3);
-                else
-                    ((ImageView)statusValue).setImageResource(android.R.drawable.presence_busy);
+                statusValue.setImageResource(android.R.drawable.presence_busy);
                 lastCommunicationTime.setText(s.getLastCommunicationTime());
                 layoutAvailableDocks.setVisibility(View.GONE);
                 layoutAvailableBikes.setVisibility(View.GONE);
