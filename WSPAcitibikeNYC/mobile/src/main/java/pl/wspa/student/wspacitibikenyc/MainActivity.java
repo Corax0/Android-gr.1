@@ -41,6 +41,18 @@ public class MainActivity extends ActionBarActivity {
                 startActivity(new Intent(v.getContext(), StationListActivity.class));
             }
         });
+        Button settingsButt = (Button) findViewById(R.id.menu_left_bottom_button);
+        settingsButt.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                startActivity(new Intent(v.getContext(), SettingsActivity.class));
+            }
+        });
+       /* Button updateButt = (Button) findViewById(R.id.menu_right_bottom_button);
+        updateButt.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                startActivity(new Intent(v.getContext(), JSONAsyncTask.class));
+            }
+        }); */
     }
 
 
