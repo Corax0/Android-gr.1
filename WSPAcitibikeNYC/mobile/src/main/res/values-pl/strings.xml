@@ -4,6 +4,9 @@
 
     <string name="action_settings">Ustawienia</string>
     <string name="action_refresh">Odśwież</string>
+    <string name="action_sort">Sortuj</string>
+    <string name="action_sort_name">Sortuj alfabetycznie</string>
+    <string name="action_sort_distance">Sortuj według odległości</string>
 
     <string name="station_status_value_1">Czynne</string>
     <string name="station_status_value_2">Planowane</string>

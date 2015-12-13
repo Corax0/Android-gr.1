@@ -4,6 +4,9 @@
 
     <string name="action_settings">Келтіру</string>
     <string name="action_refresh"><!--TODO--></string>
+    <string name="action_sort"><!--TODO--></string>
+    <string name="action_sort_name"><!--TODO--></string>
+    <string name="action_sort_distance"><!--TODO--></string>
 
     <string name="station_status_value_1"><!--TODO--></string>
     <string name="station_status_value_2"><!--TODO--></string>

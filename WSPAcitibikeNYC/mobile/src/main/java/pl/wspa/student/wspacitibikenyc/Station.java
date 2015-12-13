@@ -1,12 +1,13 @@
 package pl.wspa.student.wspacitibikenyc;
 
-import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Random;
 
 /**
  * Created by Tomasz on 17.09.2015.
  * Stolen by Piotrek on 2015-11-04.
  */
-public class Station {
+public class Station implements Comparable<Station>{
     private String id;
     private String stationName;
     private String availableDocks;
@@ -25,7 +26,7 @@ public class Station {
     private String testStation;
     private String lastCommunicationTime;
     private String landMark;
-    private Double distance;
+    private double distance;
 
     public Station(String id, String stationName, String availableDocks, String totalDocks, String latitude, String longitude, String statusValue, String statusKey, String availableBikes, String stAddress1, String stAddress2, String city, String postalCode, String location, String altitude, String testStation, String lastCommunicationTime, String landMark){
         this(id,
@@ -69,6 +70,9 @@ public class Station {
         this.testStation = testStation;
         this.lastCommunicationTime = lastCommunicationTime;
         this.landMark = landMark;
+        //TODO zmienic na automatyczne obliczanie
+        double d=new Random().nextDouble()*10000.0;
+        this.distance=d-(d%1.0);
     }
 
     public String getId() {
@@ -179,7 +183,70 @@ public class Station {
     public void setLandMark(String landMark) {
         this.landMark = landMark;
     }
-    public double GetDistance() { return distance; }
+    public double getDistance() { return distance; }
     public void setDistance(double d) { this.distance = distance; }
+
+    @Override
+    public int compareTo(Station s) {
+        if(s==null)
+            return -1;
+        int result =  Integer.valueOf(id)-Integer.valueOf(s.getId());
+        if(result == 0)
+            return statusKey-s.statusKey;
+        else
+            return result;
+    }
+
+    public static class DistanceComparator implements Comparator<Station> {
+        public final static boolean ASC=true, DESC=false;
+        private boolean order;
+
+        public DistanceComparator(boolean order){
+            this.order=order;
+        }
+
+        private int comp(Station x, Station y){
+            if(x==null||y==null)
+                return -1;
+            double result =  x.getDistance()-y.getDistance();
+            if(result == 0)
+                return new NameComparator(order).compare(x,y);
+            else
+                return result<0?-1:1;
+        }
+
+        @Override
+        public int compare(Station x, Station y) {
+            if(order){
+                return comp(x, y);
+            }else{
+                return comp(y, x);
+            }
+        }
+    }
+
+    public static class NameComparator implements Comparator<Station> {
+        public final static boolean ASC=true, DESC=false;
+        private boolean order;
+
+        public NameComparator(boolean order){
+            this.order=order;
+        }
+
+        private int comp(Station x, Station y){
+            if(x==null||y==null)
+                return -1;
+            return x.stationName.compareToIgnoreCase(y.stationName);
+        }
+
+        @Override
+        public int compare(Station x, Station y) {
+            if(order){
+                return comp(x,y);
+            }else{
+                return comp(y,x);
+            }
+        }
+    }
 }
 

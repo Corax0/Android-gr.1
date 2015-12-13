@@ -10,20 +10,26 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Collections;
 /**
  * Created by Daniel on 2015-12-02.
  */
 public class StationListActivity extends ActionBarActivity{
 
+    ArrayList list;
     StationAdapter adapter;
     ListView listView;
+    boolean orderDist= Station.DistanceComparator.DESC,
+            orderName= Station.NameComparator.DESC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_station);
         listView = (ListView)findViewById(R.id.list);
-        adapter=new StationAdapter(getApplicationContext(),MainActivity.stationArrayList);
+        list=(ArrayList<Station>)MainActivity.stationArrayList.clone();
+        adapter=new StationAdapter(getApplicationContext(),list);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -51,7 +57,8 @@ public class StationListActivity extends ActionBarActivity{
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_refresh) {
+        switch(id){
+            case R.id.action_refresh:
             if(!InternetConnectionUtil.isUpdatingStations()) {
                 new Thread(new Runnable() {
                     @Override
@@ -73,6 +80,16 @@ public class StationListActivity extends ActionBarActivity{
                 Toast.makeText(getApplicationContext(), R.string.toast_sync_inProgress, Toast.LENGTH_SHORT).show();
             }
             return true;
+            case R.id.action_sort_name:
+                orderName=!orderName;
+                Collections.sort(list,new Station.NameComparator(orderName));
+                adapter.notifyDataSetChanged();
+                return true;
+            case R.id.action_sort_distance:
+                orderDist=!orderDist;
+                Collections.sort(list,new Station.DistanceComparator(orderDist));
+                adapter.notifyDataSetChanged();
+                return true;
         }
 
         return super.onOptionsItemSelected(item);

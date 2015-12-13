@@ -105,14 +105,14 @@ public class StationInfoDialog extends DialogFragment {
                 layoutAvailableBikes.setVisibility(View.GONE);
                 break;
         }
-        Double dist=0.0; //TODO obliczenie odległości od punku 0 (my) do stacji
-        distance.setText(dist.toString());
+        Double dist=s.getDistance(); //TODO obliczenie odległości od punku 0 (my) do stacji
         if(dist>1000) {
             dist/=1000;
             unit.setText("km");
         }
         else
             unit.setText("m");
+        distance.setText(dist.toString());
         show.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
