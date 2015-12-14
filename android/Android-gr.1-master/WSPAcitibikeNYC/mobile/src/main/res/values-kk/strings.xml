@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WSPA City Bike NY<!--TODO maybe in kazakh?--></string>
+
+    <string name="action_settings">Келтіру</string>
+    <string name="action_refresh"><!--TODO--></string>
+
+    <string name="station_status_value_1"><!--TODO--></string>
+    <string name="station_status_value_2"><!--TODO--></string>
+    <string name="station_status_value_3"><!--TODO--></string>
+
+    <string name="row_station_name">Аялдама аты</string>
+    <string name="row_station_id"><!--TODO--></string>
+    <string name="row_station_status"><!--TODO--></string>
+    <string name="row_station_last_updated"><!--TODO--></string>
+    <string name="row_station_available_bikes"><!--TODO--></string>
+    <string name="row_station_available_docks"><!--TODO--></string>
+    <string name="row_station_distance"><!--TODO--></string>
+    <string name="row_station_show"><!--TODO--></string>
+    <string name="row_station_navigate"><!--TODO--></string>
+
+    <string name="settings_internet_off_title">Интернет</string>
+    <string name="settings_internet_off_summary">Тексеріңіз интернетке қосылу</string>
+    <string name="settings_location_off_title">Орналасқан жері</string>
+    <string name="settings_location_off_summary">Тексеріңіз GPS қосылу</string>
+
+    <string name="dialog_checkbox_message"><!--TODO--></string>
+    <string name="dialog_internet_message"><!--TODO--></string>
+    <string name="dialog_location_message"><!--TODO--></string>
+    <string name="dialog_station_info_title"><!--TODO--></string>
+
+    <string name="toast_sync_station_success"><!--TODO--></string>
+    <string name="toast_sync_station_failed"><!--TODO--></string>
+    <string name="toast_sync_location_success"><!--TODO--></string>
+    <string name="toast_sync_location_failed"><!--TODO--></string>
+    <string name="toast_sync_inProgress"><!--TODO--></string>
+
+    <string name="map_your_localization"><!--TODO--></string>
+    <string name="map_nearest_stations"><!--TODO--></string>
+    <string name="map_navigate_to_point"><!--TODO--></string>
+
+    <string name="menu_map"><!--TODO--></string>
+    <string name="menu_settings"><!--TODO--></string>
+    <string name="menu_find_connection"><!--TODO--></string>
+    <string name="menu_own_marks"><!--TODO--></string>
+    <string name="menu_update"><!--TODO--></string>
+    <string name="menu_station_list"><!--TODO--></string>
+</resources>
