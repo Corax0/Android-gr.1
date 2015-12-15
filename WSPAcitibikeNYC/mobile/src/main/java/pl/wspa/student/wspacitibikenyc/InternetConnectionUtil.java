@@ -1,8 +1,12 @@
 package pl.wspa.student.wspacitibikenyc;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.wifi.WifiManager;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
@@ -82,9 +86,29 @@ public class InternetConnectionUtil {
             json.execute(NY_CITY_BIKE_URL);
         }
         else {
-            if(!SettingsUtil.askInternet) {
+            if(SettingsUtil.hasConnectToInternet()){
+                WifiManager wifiManager = (WifiManager)context.getSystemService(Context.WIFI_SERVICE);
+                wifiManager.setWifiEnabled(true);
+                IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+                filter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION);
+                BroadcastReceiver icReceiver = new InternetConnectionReceiver() {
+                    @Override
+                    public void onConnectedToInternet() {
+                        updatingStations=false;
+                    }
+                };
+                updatingStations=true;
+                context.registerReceiver(icReceiver, filter);
+            }
+            else if(SettingsUtil.askInternet()) {
                 freeze=true;
                 DialogFragment fragment = new InternetConnectionDialog(){
+                    @Override
+                    public void onOkClick(DialogInterface dialog, int id) {
+                        super.onOkClick(dialog, id);
+                        updatingStations=true;
+                    }
+
                     @Override
                     public void onDestroyView() {
                         super.onDestroyView();

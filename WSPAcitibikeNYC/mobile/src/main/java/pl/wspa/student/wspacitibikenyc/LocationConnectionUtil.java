@@ -1,6 +1,9 @@
 package pl.wspa.student.wspacitibikenyc;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.location.LocationManager;
 import android.support.v4.app.DialogFragment;
@@ -47,13 +50,30 @@ public class LocationConnectionUtil {
             updatingLocation = false;
         }
         else {
-            if(!SettingsUtil.askLocation) {
+            if(SettingsUtil.hasConnectToLocation()){
+                Intent callGPSSettingIntent = new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                callGPSSettingIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_NO_HISTORY);
+                context.startActivity(callGPSSettingIntent);
+                //TODO jesli nie będzie działać trzeba zmienić filtry
+                IntentFilter filter = new IntentFilter("android.location.GPS_ENABLED_CHANGE");
+                filter.addAction("android.location.GPS_FIX_CHANGE");
+                BroadcastReceiver icReceiver = new LocationConnectionReceiver() {
+                    @Override
+                    public void onConnectedToGPS() {
+                        updatingLocation=false;
+                    }
+                };
+                updatingLocation=true;
+                context.registerReceiver(icReceiver, filter);
+            }
+            else if(SettingsUtil.askLocation()) {
                 freeze=true;
                 DialogFragment fragment = new LocationConnectionDialog(){
                     @Override
                     public void onDestroyView() {
                         super.onDestroyView();
                         freeze = false;
+                        updatingLocation=true;
                     }
                     @Override
                     public void addBroadcastRegisterOperations() {

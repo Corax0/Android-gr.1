@@ -22,10 +22,16 @@
     <string name="row_station_show">Show</string>
     <string name="row_station_navigate">Navigate</string>
 
-    <string name="settings_internet_off_title">Internet</string>
-    <string name="settings_internet_off_summary">Application does not ask about internet connection</string>
-    <string name="settings_location_off_title">Location</string>
-    <string name="settings_location_off_summary">Application does not ask about GPS connection</string>
+    <string name="settings_internet_category_title">Internet</string>
+    <string name="settings_internet_connection_title">Internet connection</string>
+    <string name="settings_internet_connection_summary">Application after running connects to Internet (wi-fi)</string>
+    <string name="settings_internet_dialog_title">Internet message</string>
+    <string name="settings_internet_dialog_summary">Application does not ask about internet connection</string>
+    <string name="settings_location_category_title">Location</string>
+    <string name="settings_location_connection_title">Location connection</string>
+    <string name="settings_location_connection_summary">Application after running redirects to location settings</string>
+    <string name="settings_location_dialog_title">Location message</string>
+    <string name="settings_location_dialog_summary">Application does not ask about GPS connection</string>
 
     <string name="dialog_checkbox_message">Do not ask again</string>
     <string name="dialog_internet_message">Internet connection is not enabled. Connect to internet?</string>

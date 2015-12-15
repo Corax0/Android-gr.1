@@ -22,10 +22,16 @@
     <string name="row_station_show"><!--TODO--></string>
     <string name="row_station_navigate"><!--TODO--></string>
 
-    <string name="settings_internet_off_title">Интернет</string>
-    <string name="settings_internet_off_summary">Тексеріңіз интернетке қосылу</string>
-    <string name="settings_location_off_title">Орналасқан жері</string>
-    <string name="settings_location_off_summary">Тексеріңіз GPS қосылу</string>
+    <string name="settings_internet_category_title">Интернет</string>
+    <string name="settings_internet_connection_title"><!--TODO--></string>
+    <string name="settings_internet_connection_summary"><!--TODO--></string>
+    <string name="settings_internet_dialog_title"><!--TODO--></string>
+    <string name="settings_internet_dialog_summary">Тексеріңіз интернетке қосылу</string>
+    <string name="settings_location_category_title">Орналасқан жері</string>
+    <string name="settings_location_connection_title"><!--TODO--></string>
+    <string name="settings_location_connection_summary"><!--TODO--></string>
+    <string name="settings_location_dialog_title"><!--TODO--></string>
+    <string name="settings_location_dialog_summary">Тексеріңіз GPS қосылу</string>
 
     <string name="dialog_checkbox_message"><!--TODO--></string>
     <string name="dialog_internet_message"><!--TODO--></string>

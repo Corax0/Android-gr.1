@@ -6,11 +6,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.IntentFilter;
-import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 
 /**
  * Created by Karolina i Daniel on 2015-11-22.
@@ -21,13 +19,16 @@ public class InternetConnectionDialog extends ConnectionDialog {
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         AlertDialog dialog= (AlertDialog) super.onCreateDialog(savedInstanceState);
         dialog.setView(view);
-        dialog.setTitle(R.string.settings_internet_off_title);
+        dialog.setTitle(R.string.settings_internet_connection_title);
         message.setText(getString(R.string.dialog_internet_message));
         return dialog;
     }
 
     @Override
     public void onOkClick(DialogInterface dialog, int id) {
+        if(checkBox.isChecked()){
+            SettingsUtil.setConnectInternet(true);
+        }
         WifiManager wifiManager = (WifiManager)getActivity().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         wifiManager.setWifiEnabled(true);
         IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
@@ -46,10 +47,7 @@ public class InternetConnectionDialog extends ConnectionDialog {
     public void onDestroyView() {
         super.onDestroyView();
         if(checkBox.isChecked()){
-            SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
-            SharedPreferences.Editor editor = settings.edit();
-            editor.putBoolean(SettingsUtil.KEY_INTERNET_OFF, true);
-            editor.commit();
+            SettingsUtil.setAskInternet(true);
         }
     }
 }
