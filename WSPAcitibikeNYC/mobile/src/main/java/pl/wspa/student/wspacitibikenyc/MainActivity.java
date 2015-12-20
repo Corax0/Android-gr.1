@@ -12,22 +12,25 @@ import java.util.ArrayList;
 
 
 public class MainActivity extends ActionBarActivity {
-    public static final int APPLICATION_START=1,
-                               RESULT_LOADED=2;
+    public static final int APPLICATION_START = 1,
+            RESULT_LOADED = 2;
 
     public static ArrayList<Station> stationArrayList;
 
+    public static double gpsLongitude = 0.0;
+    public static double gpsLatitude = 0.0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if(stationArrayList==null){
-            stationArrayList=new ArrayList<Station>();
+        if (stationArrayList == null) {
+            stationArrayList = new ArrayList<Station>();
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         startActivityForResult(new Intent(this, LoadingActivity.class), APPLICATION_START);
 
         /////////////// Kod do przechodzenia do innej aktywności po naciśnięciu guzika, na youtube dziala, u mnie nie i nie wiem jak to naprawić.
-                          //Po kliknięciu na przycisk Aktualizacja powinna wyskoczyć jedna stacja //////////////////
+        //Po kliknięciu na przycisk Aktualizacja powinna wyskoczyć jedna stacja //////////////////
 
         Button mapButt = (Button) findViewById(R.id.menu_right_top_button);
         mapButt.setOnClickListener(new View.OnClickListener() {
@@ -56,7 +59,6 @@ public class MainActivity extends ActionBarActivity {
     }
 
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -82,18 +84,17 @@ public class MainActivity extends ActionBarActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(requestCode==APPLICATION_START){
-            switch(resultCode){
+        if (requestCode == APPLICATION_START) {
+            switch (resultCode) {
                 case RESULT_LOADED:
-                    if(data.hasExtra("")){
+                    if (data.hasExtra("")) {
                         //TODO()data.getExtras().getSerializable("") ;
                     }
                     break;
                 default:
                     break;
             }
-        }
-        else{
+        } else {
             finish();
         }
     }
