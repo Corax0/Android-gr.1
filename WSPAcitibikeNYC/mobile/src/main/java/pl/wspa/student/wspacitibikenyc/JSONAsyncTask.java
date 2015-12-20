@@ -23,10 +23,11 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.util.ArrayList;
 
-class JSONAsyncTask extends AsyncTask<String, Void, Boolean>
+class JSONAsyncTask extends AsyncTask<String, Void, ArrayList<Station>>
 {
     private Context context;
-    private ArrayList<Station> stationArrayList;
+    private static boolean updatingStations=false;
+
     public JSONAsyncTask(Context context){
         super();
         this.context=context;
@@ -35,10 +36,11 @@ class JSONAsyncTask extends AsyncTask<String, Void, Boolean>
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
+        updatingStations=true;
     }
 
     @Override
-    protected Boolean doInBackground(String... urls) {
+    protected ArrayList<Station> doInBackground(String... urls) {
 
         try {
             HttpGet httppost = new HttpGet(urls[0]);
@@ -51,7 +53,7 @@ class JSONAsyncTask extends AsyncTask<String, Void, Boolean>
                 String data = EntityUtils.toString(entity);
                 JSONObject jasonObj = new JSONObject(data);
                 JSONArray jsonArray = jasonObj.getJSONArray("stationBeanList");
-                stationArrayList=new ArrayList<Station>();
+                ArrayList<Station> stationArrayList=new ArrayList<Station>();
                 for (int i = 0; i < jsonArray.length(); i++) {
                     JSONObject object = jsonArray.getJSONObject(i);
                     Station station = new Station(
@@ -75,7 +77,7 @@ class JSONAsyncTask extends AsyncTask<String, Void, Boolean>
                             object.getString("landMark"));
                     stationArrayList.add(station);
                 }
-                return true;
+                return stationArrayList;
             }
 
 
@@ -88,20 +90,29 @@ class JSONAsyncTask extends AsyncTask<String, Void, Boolean>
         }
 
 
-        return false;
+        return null;
     }
-
 
     @Override
-    protected void onPostExecute(Boolean aBoolean) {
-        super.onPostExecute(aBoolean);
-        if (aBoolean){
-            MainActivity.stationArrayList=stationArrayList;
-            Toast.makeText(context,R.string.toast_sync_station_success, Toast.LENGTH_LONG).show();
+    protected void onPostExecute(ArrayList<Station> stationList) {
+        super.onPostExecute(stationList);
+        if (stationList==null) {
+            Toast.makeText(context, R.string.toast_sync_station_failed, Toast.LENGTH_LONG).show();
+            updatingStations=false;
+            return;
         }
-        else{
-            Toast.makeText(context,R.string.toast_sync_station_failed,Toast.LENGTH_LONG).show();
+        else if(stationList.size()!=0){
+            MainActivity.stationArrayList=stationList;
         }
+        updatingStations=false;
+        Toast.makeText(context,R.string.toast_sync_station_success, Toast.LENGTH_LONG).show();
     }
 
+    public static void setUpdatingStations(boolean updatingStations) {
+        JSONAsyncTask.updatingStations = updatingStations;
+    }
+
+    public static boolean isUpdatingStations() {
+        return updatingStations;
+    }
 }

@@ -24,7 +24,7 @@ public class LoadingActivity extends ActionBarActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                taskInternet=!InternetConnectionUtil.updateStationFromJSON(getApplicationContext(),getSupportFragmentManager());
+                taskInternet=!InternetConnectionUtil.updateStationFromJSON(getApplicationContext(),getSupportFragmentManager(),new JSONAsyncTask(getApplicationContext()));
             }
         }).start();
         //TODO SQL, i jakies inne pierdy

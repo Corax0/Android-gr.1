@@ -20,6 +20,7 @@ public class StationListActivity extends ActionBarActivity{
     ArrayList list;
     StationAdapter adapter;
     ListView listView;
+    Toast toast;
     boolean orderDist= Station.DistanceComparator.DESC,
             orderName= Station.NameComparator.DESC;
 
@@ -59,27 +60,27 @@ public class StationListActivity extends ActionBarActivity{
         //noinspection SimplifiableIfStatement
         switch(id){
             case R.id.action_refresh:
-            if(!InternetConnectionUtil.isUpdatingStations()) {
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        InternetConnectionUtil.updateStationFromJSON(getApplicationContext(), getSupportFragmentManager());
-                        if (InternetConnectionUtil.isUpdatingStations()) {
-                            while (InternetConnectionUtil.isUpdatingStations()) {
-                            }
-                            try {
-                                adapter.notifyDataSetChanged();
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
+                if(!RefreshListAsyncTask.isUpdatingStations()) {
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                        InternetConnectionUtil.updateStationFromJSON(getApplicationContext(),getSupportFragmentManager(),new RefreshListAsyncTask());
                         }
+                    }).start();
+                }
+                else {
+                    if(toast == null){
+                        toast=Toast.makeText(getApplicationContext(), R.string.toast_sync_inProgress, Toast.LENGTH_SHORT);
                     }
-                }).start();
-            }
-            else {
-                Toast.makeText(getApplicationContext(), R.string.toast_sync_inProgress, Toast.LENGTH_SHORT).show();
-            }
-            return true;
+                    try{
+                        if(toast.getView().isShown() == false)
+                            toast.show();
+                    }
+                    catch (Exception e){
+                        e.printStackTrace();
+                    }
+                }
+                return true;
             case R.id.action_sort_name:
                 orderName=!orderName;
                 Collections.sort(list,new Station.NameComparator(orderName));
@@ -93,5 +94,31 @@ public class StationListActivity extends ActionBarActivity{
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    class RefreshListAsyncTask extends JSONAsyncTask{
+        public RefreshListAsyncTask() {
+            super(getApplicationContext());
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onPostExecute(ArrayList<Station> stationList) {
+            super.onPostExecute(stationList);
+            if(stationList.size()!=0){
+                list.clear();
+                list.addAll(MainActivity.stationArrayList);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        adapter.notifyDataSetChanged();
+                    }
+                });
+                Collections.sort(list);
+            }
+        }
     }
 }

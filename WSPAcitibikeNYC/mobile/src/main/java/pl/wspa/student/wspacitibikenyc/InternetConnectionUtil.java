@@ -2,12 +2,10 @@ package pl.wspa.student.wspacitibikenyc;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiManager;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
 
@@ -21,7 +19,6 @@ public class InternetConnectionUtil {
     public static int TYPE_MOBILE = 2;
     public static int TYPE_NOT_CONNECTED = 0;
 
-    private static boolean updatingStations=false;
     private static boolean freeze=false;
 
     public static boolean isConnectedToInternet(Context context){
@@ -71,18 +68,11 @@ public class InternetConnectionUtil {
      *
      * @param context context aktywności
      * @param supportFragmentManager supportFragmentManager aktywności
+     * @param json obiekt klasy JSONAsyncTask
      * @return zwraca true po zakonczeniu pobierania lub pytania sie o pobieranie
      */
-    public static boolean updateStationFromJSON(Context context,FragmentManager supportFragmentManager){
+    public static boolean updateStationFromJSON(Context context,FragmentManager supportFragmentManager,JSONAsyncTask json){
         if(isConnectedToInternet(context)) {
-            updatingStations = true;
-            JSONAsyncTask json = new JSONAsyncTask(context) {
-                @Override
-                protected void onPostExecute(Boolean aBoolean) {
-                    super.onPostExecute(aBoolean);
-                    updatingStations = false;
-                }
-            };
             json.execute(NY_CITY_BIKE_URL);
         }
         else {
@@ -91,34 +81,23 @@ public class InternetConnectionUtil {
                 wifiManager.setWifiEnabled(true);
                 IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
                 filter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION);
-                BroadcastReceiver icReceiver = new InternetConnectionReceiver() {
+                BroadcastReceiver icReceiver = new InternetConnectionReceiver(json) {
                     @Override
                     public void onConnectedToInternet() {
-                        updatingStations=false;
                     }
                 };
-                updatingStations=true;
                 context.registerReceiver(icReceiver, filter);
             }
             else if(SettingsUtil.askInternet()) {
                 freeze=true;
-                DialogFragment fragment = new InternetConnectionDialog(){
-                    @Override
-                    public void onOkClick(DialogInterface dialog, int id) {
-                        super.onOkClick(dialog, id);
-                        updatingStations=true;
-                    }
-
+                InternetConnectionDialog fragment = new InternetConnectionDialog(){
                     @Override
                     public void onDestroyView() {
                         super.onDestroyView();
                         freeze = false;
                     }
-                    @Override
-                    public void addBroadcastRegisterOperations() {
-                        updatingStations =false;
-                    }
                 };
+                fragment.setJSONAsyncTask(json);
                 try {
                     fragment.show(supportFragmentManager, "internet");
                     while(freeze){}
@@ -128,9 +107,5 @@ public class InternetConnectionUtil {
             }
         }
         return true;
-    }
-
-    public static boolean isUpdatingStations() {
-        return updatingStations;
     }
 }

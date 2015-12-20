@@ -14,6 +14,7 @@ import android.os.Bundle;
  * Created by Karolina i Daniel on 2015-11-22.
  */
 public class InternetConnectionDialog extends ConnectionDialog {
+    JSONAsyncTask json;
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -29,17 +30,20 @@ public class InternetConnectionDialog extends ConnectionDialog {
         if(checkBox.isChecked()){
             SettingsUtil.setConnectInternet(true);
         }
-        WifiManager wifiManager = (WifiManager)getActivity().getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+        Context context=getActivity().getApplicationContext();
+        WifiManager wifiManager = (WifiManager)context.getSystemService(Context.WIFI_SERVICE);
         wifiManager.setWifiEnabled(true);
         IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
         filter.addAction(WifiManager.NETWORK_STATE_CHANGED_ACTION);
-        BroadcastReceiver icReceiver = new InternetConnectionReceiver() {
+        if(json==null)
+            json=new JSONAsyncTask(context);
+        BroadcastReceiver icReceiver = new InternetConnectionReceiver(json) {
             @Override
             public void onConnectedToInternet() {
                 addBroadcastRegisterOperations();
             }
         };
-        getActivity().getApplicationContext().registerReceiver(icReceiver, filter);
+        context.registerReceiver(icReceiver, filter);
     }
     public void addBroadcastRegisterOperations(){};
 
@@ -49,5 +53,9 @@ public class InternetConnectionDialog extends ConnectionDialog {
         if(checkBox.isChecked()){
             SettingsUtil.setAskInternet(true);
         }
+    }
+
+    public void setJSONAsyncTask(JSONAsyncTask task){
+        json=task;
     }
 }
