@@ -4,96 +4,44 @@
     android:layout_height="match_parent"
     android:background="@drawable/background_clear">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <FrameLayout
+        android:layout_width="1080px"
+        android:layout_height="150px"
+        android:id="@+id/button_station_list"
+        android:background="@drawable/find_station_list" >
+
+    </FrameLayout>
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="1000px">
+        android:layout_height="150px"
+        android:id="@+id/button_own_marks"
+        android:background="@drawable/find_favourites">
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="150px"
-            android:id="@+id/container_station_list">
+    </FrameLayout>
 
-            <FrameLayout
-                android:layout_width="150px"
-                android:layout_height="fill_parent"
-                android:layout_gravity="left|top"
-                android:id="@+id/station_list_image"
-                android:background="@android:drawable/ic_menu_sort_by_size"></FrameLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/button_map"
+        android:background="@drawable/find_map">
 
-            <TextView
-                android:layout_width="830px"
-                android:layout_height="120px"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Wybierz z listy stacji"
-                android:id="@+id/textView"
-                android:layout_gravity="bottom|right"
-                android:autoText="false" />
-        </FrameLayout>
+    </FrameLayout>
 
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="150px"
-            android:id="@+id/container_own_marks">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/button_find"
+        android:background="@drawable/find_find">
 
-            <FrameLayout
-                android:layout_width="150px"
-                android:layout_height="match_parent"
-                android:layout_gravity="left|top"
-                android:id="@+id/own_marks_image"
-                android:background="@android:drawable/btn_star_big_off"></FrameLayout>
+    </FrameLayout>
 
-            <TextView
-                android:layout_width="830px"
-                android:layout_height="fill_parent"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Wybierz z listy własnych punktów"
-                android:id="@+id/textView2"
-                android:layout_gravity="right|top" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="150px"
-            android:layout_gravity="center_horizontal"
-            android:id="@+id/containter_map">
-
-            <FrameLayout
-                android:layout_width="150px"
-                android:layout_height="match_parent"
-                android:layout_gravity="left|top"
-                android:id="@+id/map_image"
-                android:background="@android:drawable/ic_dialog_map"></FrameLayout>
-
-            <TextView
-                android:layout_width="830px"
-                android:layout_height="125px"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Wybierz z mapy"
-                android:id="@+id/textView3"
-                android:layout_gravity="right|bottom" />
-        </FrameLayout>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="150px"
-            android:layout_gravity="center_horizontal"
-            android:id="@+id/container_find">
-
-            <FrameLayout
-                android:layout_width="150px"
-                android:layout_height="match_parent"
-                android:layout_gravity="left|top"
-                android:id="@+id/find_image"
-                android:background="@android:drawable/ic_menu_search"></FrameLayout>
-
-            <TextView
-                android:layout_width="830px"
-                android:layout_height="125px"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Wyszukaj"
-                android:id="@+id/textView4"
-                android:layout_gravity="right|bottom" />
-        </FrameLayout>
-    </LinearLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/background"
+        android:background="@drawable/find_background">
+    </FrameLayout>
 </LinearLayout>
