@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/settings_internet_category_title"
+        android:key="internet_category">
+        <CheckBoxPreference
+            android:key="internet_connection"
+            android:title="@string/settings_internet_connection_title"
+            android:summary="@string/settings_internet_connection_summary"
+            android:defaultValue="false" />
+        <CheckBoxPreference
+            android:key="internet_dialog"
+            android:title="@string/settings_internet_dialog_title"
+            android:summary="@string/settings_internet_dialog_summary"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/settings_location_category_title"
+        android:key="location_category">
+        <CheckBoxPreference
+            android:key="location_connection"
+            android:title="@string/settings_location_connection_title"
+            android:summary="@string/settings_location_connection_summary"
+            android:defaultValue="false" />
+        <CheckBoxPreference
+            android:key="location_dialog"
+            android:title="@string/settings_location_dialog_title"
+            android:summary="@string/settings_location_dialog_summary"
+            android:defaultValue="false" />
+    </PreferenceCategory>
+</PreferenceScreen>

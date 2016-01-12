@@ -1,0 +1,16 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+    <style name="AppTheme.TextAppearance.Hint" parent="AppTheme">
+        <item name="android:textSize">7dp</item>
+    </style>
+
+    <style name="AppTheme.AppCompat.NoActionBar" parent="Theme.AppCompat.Light.NoActionBar"></style>
+
+    <style name="AppTheme.AppCompat.ActionBar" parent="ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:windowBackground">@drawable/background_clear</item>
+    </style>
+
+</resources>

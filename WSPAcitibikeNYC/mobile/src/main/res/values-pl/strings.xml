@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WSPA Citi Bike NY</string>
+
+    <string name="action_settings">Ustawienia</string>
+    <string name="action_refresh">Odśwież</string>
+    <string name="action_sort">Sortuj</string>
+    <string name="action_sort_name">Sortuj alfabetycznie</string>
+    <string name="action_sort_distance">Sortuj według odległości</string>
+
+    <string name="station_status_value_1">Czynne</string>
+    <string name="station_status_value_2">Planowane</string>
+    <string name="station_status_value_3">Nie czynne</string>
+
+    <string name="row_station_name">Nazwa stacji</string>
+    <string name="row_station_id">Id</string>
+    <string name="row_station_status">Status</string>
+    <string name="row_station_last_updated">Zaktualizowano</string>
+    <string name="row_station_available_bikes">Dostępne rowery</string>
+    <string name="row_station_available_docks">Dostępne miejsca</string>
+    <string name="row_station_distance">Odległość</string>
+    <string name="row_station_show">Pokaż</string>
+    <string name="row_station_navigate">Nawiguj</string>
+
+    <string name="settings_internet_category_title">Internet</string>
+    <string name="settings_internet_connection_title">Połączenie z internetem</string>
+    <string name="settings_internet_connection_summary">Aplikacja po uruchomieniu łaczy się z internetem</string>
+    <string name="settings_internet_dialog_title">Powiadomienie o internet</string>
+    <string name="settings_internet_dialog_summary">Aplikacja nie pyta o połączenie z internetem</string>
+    <string name="settings_location_category_title">Lokalizacja</string>
+    <string name="settings_location_connection_title">Połączenie z GPS</string>
+    <string name="settings_location_connection_summary">Aplikacja po uruchomienu przekierowuje do ustawień lokalizacji</string>
+    <string name="settings_location_dialog_title">Powiadomienie o GPS</string>
+    <string name="settings_location_dialog_summary">Aplikacja nie pyta o połączenie z GPS</string>
+
+    <string name="dialog_checkbox_message">Nie pytaj ponownie</string>
+    <string name="dialog_internet_message">Połączenie z internetem jest niedostępne. Polaczyc z internetem?</string>
+    <string name="dialog_location_message">Dostęp do lokalizacji jest niemożliwy. Przejść do ustawień lokalizacji?</string>
+    <string name="dialog_station_info_title">Informacje o stacji</string>
+
+    <string name="toast_sync_station_success">Zaktualizowano stacje</string>
+    <string name="toast_sync_station_failed">Błąd aktualizacji</string>
+    <string name="toast_sync_location_success"><!--TODO--></string>
+    <string name="toast_sync_location_failed"><!--TODO--></string>
+    <string name="toast_sync_inProgress">Proszę czekać... Trwa wykonywanie operacji</string>
+
+    <string name="map_your_localization"><!--TODO--></string>
+    <string name="map_nearest_stations"><!--TODO--></string>
+    <string name="map_navigate_to_point"><!--TODO--></string>
+
+    <string name="menu_map">Mapa</string>
+    <string name="menu_settings">Ustawienia</string>
+    <string name="menu_find_connection">Znajdź połączenie</string>
+    <string name="menu_own_marks">Własne znaczniki</string>
+    <string name="menu_update">Aktualizacja</string>
+    <string name="menu_station_list">Lista stacji</string>
+</resources>

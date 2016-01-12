@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WSPA Citi Bike NY</string>
+
+    <string name="action_settings">Настройки</string>
+    <string name="action_refresh">Обновить</string>
+    <string name="action_sort">Сортировать</string>
+    <string name="action_sort_name">Сортировать по имени</string>
+    <string name="action_sort_distance">Сортировать по дистанции </string>
+
+    <string name="station_status_value_1">Активна</string>
+    <string name="station_status_value_2">Планируется</string>
+    <string name="station_status_value_3">Неактивна</string>
+
+    <string name="row_station_name">Имя станции</string>
+    <string name="row_station_id">Номер</string>
+    <string name="row_station_status">Статус</string>
+    <string name="row_station_last_updated">Обновлено</string>
+    <string name="row_station_available_bikes">Доступных велосипедов</string>
+    <string name="row_station_available_docks">Доступных мест</string>
+    <string name="row_station_distance">Дистанция</string>
+    <string name="row_station_show">Показать</string>
+    <string name="row_station_navigate">Проложить путь</string>
+
+    <string name="settings_internet_category_title">Интернет</string>
+    <string name="settings_internet_connection_title">Подключение к интернету</string>
+    <string name="settings_internet_connection_summary">После запуска, приложение подключается к интернету</string>
+    <string name="settings_internet_dialog_title">Уведомление о подключении к интернету</string>
+    <string name="settings_internet_dialog_summary">Отсутствует подключение к интернету</string>
+    <string name="settings_location_category_title">Местоположение</string>
+    <string name="settings_location_connection_title">Подключение к GPS</string>
+    <string name="settings_location_connection_summary">После запуска, открыть настройки подключения к GPS</string>
+    <string name="settings_location_dialog_title">Уведомление о подключении к GPS</string>
+    <string name="settings_location_dialog_summary">Отсутствует подключение к GPS</string>
+
+    <string name="dialog_checkbox_message">Больше не спрашивать</string>
+    <string name="dialog_internet_message">Нет подключения к интернету. Включить передачу данных?</string>
+    <string name="dialog_location_message">Невозможно определить местоположение. Перейти в настройки?</string>
+    <string name="dialog_station_info_title">Информация о станции</string>
+
+    <string name="toast_sync_station_success">Обновление успешно завершено</string>
+    <string name="toast_sync_station_failed">Не удалось обновить</string>
+    <string name="toast_sync_location_success">Местоположение успешно обновлено</string>
+    <string name="toast_sync_location_failed">Не удалось определить местоположение</string>
+    <string name="toast_sync_inProgress">Пожалуйста подождите... Выполнение</string>
+
+    <string name="map_your_localization"><!--TODO--></string>
+    <string name="map_nearest_stations"><!--TODO--></string>
+    <string name="map_navigate_to_point"><!--TODO--></string>
+
+    <string name="menu_map">Карта</string>
+    <string name="menu_settings">Настройки</string>
+    <string name="menu_find_connection">Поиск подключения</string>
+    <string name="menu_own_marks">Пользовательские метки</string>
+    <string name="menu_update">Обновить</string>
+    <string name="menu_station_list">Список станций</string>
+</resources>

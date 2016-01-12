@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_clear">
+
+    <FrameLayout
+        android:layout_width="1080px"
+        android:layout_height="150px"
+        android:id="@+id/button_station_list"
+        android:background="@drawable/find_station_list" >
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:id="@+id/button_own_marks"
+        android:background="@drawable/find_favourites">
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/button_map"
+        android:background="@drawable/find_map">
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="150px"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/button_find"
+        android:background="@drawable/find_find">
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/background"
+        android:background="@drawable/find_background">
+    </FrameLayout>
+</LinearLayout>
