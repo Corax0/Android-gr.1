@@ -40,13 +40,13 @@
 
     <string name="toast_sync_station_success">Zaktualizowano stacje</string>
     <string name="toast_sync_station_failed">Błąd aktualizacji</string>
-    <string name="toast_sync_location_success"><!--TODO--></string>
-    <string name="toast_sync_location_failed"><!--TODO--></string>
+    <string name="toast_sync_location_success">Lokalizacja zaktualizowana</string>
+    <string name="toast_sync_location_failed">Nie można określić lokalizacji</string>
     <string name="toast_sync_inProgress">Proszę czekać... Trwa wykonywanie operacji</string>
 
-    <string name="map_your_localization"><!--TODO--></string>
-    <string name="map_nearest_stations"><!--TODO--></string>
-    <string name="map_navigate_to_point"><!--TODO--></string>
+    <string name="map_your_localization">Twoja lokalizacja</string>
+    <string name="map_nearest_stations">Najbliższe stacje</string>
+    <string name="map_navigate_to_point">Przejdź do punktu</string>
 
     <string name="menu_map">Mapa</string>
     <string name="menu_settings">Ustawienia</string>
