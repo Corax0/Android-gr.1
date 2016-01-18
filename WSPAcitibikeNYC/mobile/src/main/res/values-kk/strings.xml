@@ -1,57 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">WSPA City Bike NY<!--TODO maybe in kazakh?--></string>
+    <string name="app_name">WSPA City Bike NY</string>
 
-    <string name="action_settings">Келтіру</string>
-    <string name="action_refresh"><!--TODO--></string>
-    <string name="action_sort"><!--TODO--></string>
-    <string name="action_sort_name"><!--TODO--></string>
-    <string name="action_sort_distance"><!--TODO--></string>
+    <string name="action_settings">Параметрлер</string>
+    <string name="action_refresh">Жаңарту</string>
+    <string name="action_sort">Сорт</string>
+    <string name="action_sort_name">Аты бойынша сұрыптау</string>
+    <string name="action_sort_distance">Қашықтықта бойынша сұрыптау</string>
 
-    <string name="station_status_value_1"><!--TODO--></string>
-    <string name="station_status_value_2"><!--TODO--></string>
-    <string name="station_status_value_3"><!--TODO--></string>
+    <string name="station_status_value_1">Белсенді</string>
+    <string name="station_status_value_2">Жоспарланған</string>
+    <string name="station_status_value_3">Белсенді емес</string>
 
-    <string name="row_station_name">Аялдама аты</string>
-    <string name="row_station_id"><!--TODO--></string>
-    <string name="row_station_status"><!--TODO--></string>
-    <string name="row_station_last_updated"><!--TODO--></string>
-    <string name="row_station_available_bikes"><!--TODO--></string>
-    <string name="row_station_available_docks"><!--TODO--></string>
-    <string name="row_station_distance"><!--TODO--></string>
-    <string name="row_station_show"><!--TODO--></string>
-    <string name="row_station_navigate"><!--TODO--></string>
+    <string name="row_station_name">Станция атауы</string>
+    <string name="row_station_id">ID</string>
+    <string name="row_station_status">Мәртебе</string>
+    <string name="row_station_last_updated">Соңғы жаңартылған</string>
+    <string name="row_station_available_bikes">Қолжетімді велосипедтер</string>
+    <string name="row_station_available_docks">Қолжетімді ғарыш</string>
+    <string name="row_station_distance">Қашықтық</string>
+    <string name="row_station_show">Көрсету</string>
+    <string name="row_station_navigate">Жол салуы</string>
 
     <string name="settings_internet_category_title">Интернет</string>
-    <string name="settings_internet_connection_title"><!--TODO--></string>
-    <string name="settings_internet_connection_summary"><!--TODO--></string>
-    <string name="settings_internet_dialog_title"><!--TODO--></string>
-    <string name="settings_internet_dialog_summary">Тексеріңіз интернетке қосылу</string>
+    <string name="settings_internet_connection_title">Интернетке қол жеткізу</string>
+    <string name="settings_internet_connection_summary">Интернетке қосылады іске қосқаннан кейін қолдану (Wi-Fi)</string>
+    <string name="settings_internet_dialog_title">Интернет хабарлама</string>
+    <string name="settings_internet_dialog_summary">Қолдану интернет байланысы туралы талап етпейді</string>
     <string name="settings_location_category_title">Орналасқан жері</string>
-    <string name="settings_location_connection_title"><!--TODO--></string>
-    <string name="settings_location_connection_summary"><!--TODO--></string>
-    <string name="settings_location_dialog_title"><!--TODO--></string>
-    <string name="settings_location_dialog_summary">Тексеріңіз GPS қосылу</string>
+    <string name="settings_location_connection_title">GPS үйлесімі</string>
+    <string name="settings_location_connection_summary">іске қосқаннан кейін қолдану, параметрлерге өтіңіз GPS</string>
+    <string name="settings_location_dialog_title">Oрналасқан жері хабарлама</string>
+    <string name="settings_location_dialog_summary">Қолдану GPS байланысы туралы талап етпейді</string>
 
-    <string name="dialog_checkbox_message"><!--TODO--></string>
-    <string name="dialog_internet_message"><!--TODO--></string>
-    <string name="dialog_location_message"><!--TODO--></string>
-    <string name="dialog_station_info_title"><!--TODO--></string>
+    <string name="dialog_checkbox_message">Қайтадан сұрамау</string>
+    <string name="dialog_internet_message">Интернет қосылымы мүмкін емес. Интернетке қосылу?</string>
+    <string name="dialog_location_message">Орналасқан жерін анықтау мүмкін емес. Параметрлерге өтіңіз?</string>
+    <string name="dialog_station_info_title">Станция ақпарат</string>
 
-    <string name="toast_sync_station_success"><!--TODO--></string>
-    <string name="toast_sync_station_failed"><!--TODO--></string>
-    <string name="toast_sync_location_success"><!--TODO--></string>
-    <string name="toast_sync_location_failed"><!--TODO--></string>
-    <string name="toast_sync_inProgress"><!--TODO--></string>
+    <string name="toast_sync_station_success">Станциялары табысты жаңартылады</string>
+    <string name="toast_sync_station_failed">Жаңарту қатесі</string>
+    <string name="toast_sync_location_success">Орналасқан жері сәтті жаңартылды</string>
+    <string name="toast_sync_location_failed">Орналасқан жерін анықтау мүмкін емес</string>
+    <string name="toast_sync_inProgress">Күте тұрыңыз... іс-қимыл жалғасуда</string>
 
-    <string name="map_your_localization"><!--TODO--></string>
-    <string name="map_nearest_stations"><!--TODO--></string>
-    <string name="map_navigate_to_point"><!--TODO--></string>
+    <string name="map_your_localization">Сіздің жері</string>
+    <string name="map_nearest_stations">Ең жақын станциялары</string>
+    <string name="map_navigate_to_point">тармақ өтіңіз</string>
 
-    <string name="menu_map"><!--TODO--></string>
-    <string name="menu_settings"><!--TODO--></string>
-    <string name="menu_find_connection"><!--TODO--></string>
-    <string name="menu_own_marks"><!--TODO--></string>
-    <string name="menu_update"><!--TODO--></string>
-    <string name="menu_station_list"><!--TODO--></string>
+    <string name="menu_map">Карта</string>
+    <string name="menu_settings">Параметрлер</string>
+    <string name="menu_find_connection">Қосылымды табу</string>
+    <string name="menu_own_marks">Менің тегтерді</string>
+    <string name="menu_update">Жаңарту</string>
+    <string name="menu_station_list">Станциялар тізімі</string>
 </resources>
