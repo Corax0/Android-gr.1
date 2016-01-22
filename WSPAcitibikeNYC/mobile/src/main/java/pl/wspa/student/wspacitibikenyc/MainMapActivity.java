@@ -3,7 +3,7 @@ package pl.wspa.student.wspacitibikenyc;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
+//import android.widget.ImageView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -17,7 +17,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
  */
 public class MainMapActivity extends ActionBarActivity implements OnMapReadyCallback {
     private GoogleMap mMap;
-    private ImageView mStationPointer;
+//    private ImageView mStationPointer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +32,9 @@ public class MainMapActivity extends ActionBarActivity implements OnMapReadyCall
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
     }
-
-    /*nie jestem pewien gdzie to wrzucić więc na razie wrzucam to tu;*/
-    /*+ brak pomysłu jak wywoływać metodę --Darek */
+/*
+    //nie jestem pewien gdzie to wrzucić więc na razie wrzucam to tu;
+    //+ brak pomysłu jak wywoływać metodę --Darek
 
     @Override
     public void ShowStationLocation(Location location) {
@@ -47,10 +47,10 @@ public class MainMapActivity extends ActionBarActivity implements OnMapReadyCall
 
         if (mStationPointer == null){
             mStationPointer = new ImageView(this);
-            /*mStationPointer.setImageResource(R.drawable.ic_maps_indicator_current_position);*/
+            //mStationPointer.setImageResource(R.drawable.ic_maps_indicator_current_position);
             mMapView.addView(mStationPointer,lp);
         } else {
             mStationPointer.setLayoutParams(lp);
         }
-    }
+    }*/
 }
