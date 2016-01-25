@@ -1,78 +1,128 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/background_clear">
+    android:background="@drawable/background_clear"
+    android:orientation="vertical">
 
-    <Button
-        android:layout_width="180dp"
-        android:layout_height="200dp"
-        android:text="@string/menu_find_connection"
-        android:id="@+id/menu_left_top_button"
-        android:layout_alignParentTop="true"
-        android:background="@drawable/menu_left_top_button"
-        android:textColor="#ffdd00"
-        android:textStyle="bold"
-        android:textSize="20sp" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
 
-    <Button
-        android:layout_width="180dp"
-        android:layout_height="200dp"
-        android:text="@string/menu_map"
-        android:id="@+id/menu_right_top_button"
-        android:layout_alignTop="@+id/menu_left_top_button"
-        android:layout_alignParentEnd="true"
-        android:layout_toEndOf="@+id/menu_left_top_button"
-        android:background="@drawable/menu_right_top_button"
-        android:textColor="#ffdd00"
-        android:textStyle="bold"
-        android:textSize="20sp"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/menu_find_connection"
+            android:id="@+id/menu_left_top_button"
+            android:layout_weight="1"
+            android:background="@drawable/menu_left_top_button"
+            android:lines="2"
+            android:padding="@dimen/activity_main_button_padding"
+            android:textColor="#ffdd00"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
 
-    <Button
-        android:layout_width="180dp"
-        android:layout_height="200dp"
-        android:text="@string/menu_station_list"
-        android:id="@+id/menu_left_center_button"
-        android:layout_below="@+id/menu_left_top_button"
-        android:background="@drawable/menu_left_center_button"
-        android:textColor="#ffdd00"
-        android:textStyle="bold"
-        android:textSize="20sp"/>
+        <LinearLayout
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:background="#ffffff"
+            android:orientation="vertical" />
 
-    <Button
-        android:layout_width="180dp"
-        android:layout_height="200dp"
-        android:text="@string/menu_own_marks"
-        android:id="@+id/menu_right_center_button"
-        android:layout_below="@+id/menu_left_top_button"
-        android:layout_toEndOf="@+id/menu_left_center_button"
-        android:background="@drawable/menu_right_center_button"
-        android:textColor="#ffdd00"
-        android:textStyle="bold"
-        android:textSize="20sp" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/menu_map"
+            android:id="@+id/menu_right_top_button"
+            android:background="@drawable/menu_right_top_button"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:textColor="#ffdd00"
+            android:textSize="20sp" />
+    </LinearLayout>
 
-    <Button
-        android:layout_width="180dp"
-        android:layout_height="200dp"
-        android:text="@string/menu_settings"
-        android:id="@+id/menu_left_bottom_button"
-        android:layout_below="@+id/menu_left_center_button"
-        android:layout_alignParentStart="true"
-        android:background="@drawable/menu_left_bottom_button"
-        android:textColor="#ffdd00"
-        android:textStyle="bold"
-        android:textSize="20sp"/>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#ffffff"
+        android:orientation="horizontal" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/menu_station_list"
+            android:id="@+id/menu_left_center_button"
+            android:background="@drawable/menu_left_center_button"
+            android:textColor="#ffdd00"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:background="#ffffff"
+            android:orientation="vertical" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/menu_own_marks"
+            android:id="@+id/menu_right_center_button"
+            android:background="@drawable/menu_right_center_button"
+            android:textColor="#ffdd00"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#ffffff"
+        android:orientation="horizontal" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/menu_update"
+            android:id="@+id/menu_right_bottom_button"
+            android:background="@drawable/menu_right_bottom_button"
+            android:textColor="#ffdd00"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_weight="1" />
+
+        <LinearLayout
+            android:layout_width="1dp"
+            android:layout_height="fill_parent"
+            android:background="#ffffff"
+            android:orientation="vertical" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/menu_settings"
+            android:id="@+id/menu_left_bottom_button"
+            android:background="@drawable/menu_left_bottom_button"
+            android:textColor="#ffdd00"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_weight="1" />
+    </LinearLayout>
 
 
-    <Button
-        android:layout_width="180dp"
-        android:layout_height="200dp"
-        android:text="@string/menu_update"
-        android:id="@+id/menu_right_bottom_button"
-        android:layout_below="@+id/menu_left_center_button"
-        android:layout_alignParentEnd="true"
-        android:background="@drawable/menu_right_bottom_button"
-        android:textColor="#ffdd00"
-        android:textStyle="bold"
-        android:textSize="20sp"/>
-</RelativeLayout>
+</LinearLayout>

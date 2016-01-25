@@ -95,7 +95,6 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/row_station_available_bikes"
-                        android:textAppearance="@style/AppTheme.TextAppearance.Hint"
                         android:textColor="#ffffff"/>
 
                 </LinearLayout>
@@ -143,8 +142,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/row_station_available_docks"
-                        android:textColor="#ffffff"
-                        android:textAppearance="@style/AppTheme.TextAppearance.Hint" />
+                        android:textColor="#ffffff"/>
+
 
                 </LinearLayout>
 
@@ -175,14 +174,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/row_station_last_updated"
-                        android:textAppearance="@style/AppTheme.TextAppearance.Hint"
                         android:textColor="#ffffff"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=":"
-                        android:textAppearance="@style/AppTheme.TextAppearance.Hint"
                         android:textColor="#ffffff"
                         android:id="@+id/textView6" />
                 </LinearLayout>
@@ -191,7 +188,6 @@
                     android:id="@+id/rs_value_lastCommunicationTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="@style/AppTheme.TextAppearance.Hint"
                     android:textColor="#ffffff"/>
             </LinearLayout>
 
@@ -210,7 +206,7 @@
                     android:drawableTop="@android:drawable/ic_dialog_map"
                     android:text="@string/row_station_show"
                     android:textColor="#FFFFFF"
-                    android:textAppearance="@style/AppTheme.TextAppearance.Hint"/>
+                   />
 
                 <Button
                     android:id="@+id/rs_navigate"
@@ -220,7 +216,7 @@
                     android:drawableTop="@drawable/abc_ic_search_api_mtrl_alpha"
                     android:text="@string/row_station_navigate"
                     android:textColor="#FFFFFF"
-                    android:textAppearance="@style/AppTheme.TextAppearance.Hint"/>
+                   />
 
             </LinearLayout>
 
