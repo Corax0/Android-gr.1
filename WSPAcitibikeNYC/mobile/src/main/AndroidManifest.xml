@@ -50,6 +50,8 @@
             android:name=".StationMapActivity"
             android:label="string/app_name">
         </activity>
+        <activity android:name=".NavigateToActivity"
+            android:label="Find by"></activity>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />

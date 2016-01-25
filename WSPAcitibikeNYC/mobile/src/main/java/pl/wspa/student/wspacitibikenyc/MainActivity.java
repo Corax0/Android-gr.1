@@ -7,11 +7,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-
 import java.util.ArrayList;
 
 
+
 public class MainActivity extends ActionBarActivity {
+    private boolean taskInternet, taskLocation,taskDatabase;
     public static final int APPLICATION_START = 1,
             RESULT_LOADED = 2;
 
@@ -28,6 +29,8 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         startActivityForResult(new Intent(this, LoadingActivity.class), APPLICATION_START);
+
+
 
         /////////////// Kod do przechodzenia do innej aktywności po naciśnięciu guzika, na youtube dziala, u mnie nie i nie wiem jak to naprawić.
         //Po kliknięciu na przycisk Aktualizacja powinna wyskoczyć jedna stacja //////////////////
@@ -50,12 +53,60 @@ public class MainActivity extends ActionBarActivity {
                 startActivity(new Intent(v.getContext(), SettingsActivity.class));
             }
         });
-       /* Button updateButt = (Button) findViewById(R.id.menu_right_bottom_button);
-        updateButt.setOnClickListener(new View.OnClickListener() {
+        Button findButt = (Button) findViewById(R.id.menu_left_top_button);
+        findButt.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(new Intent(v.getContext(), JSONAsyncTask.class));
+                startActivity(new Intent(v.getContext(), NavigateToActivity.class));
             }
-        }); */
+        });
+
+        Button ownMarks = (Button) findViewById(R.id.menu_right_center_button);
+        ownMarks.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                startActivity(new Intent(v.getContext(), StationListActivity.class));
+            }
+        });
+
+        Button refreshButt = (Button) findViewById(R.id.menu_right_bottom_button);
+        refreshButt.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                SettingsUtil.loadSettings(getApplicationContext());
+                taskInternet=true;
+                taskLocation =true;
+                taskDatabase=true;
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        taskLocation=!LocationConnectionUtil.updateLocationData(getApplicationContext(),getSupportFragmentManager());
+                    }
+                }).start();
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        taskInternet=!InternetConnectionUtil.updateStationFromJSON(getApplicationContext(),getSupportFragmentManager(),new JSONAsyncTask(getApplicationContext()));
+                    }
+                }).start();
+                taskDatabase=false;
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        while(taskInternet|| taskLocation ||taskDatabase){}
+                        int millis=1000;
+                        try {
+                            Thread.sleep(millis);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }).start();
+
+
+            }
+        });
+
+
     }
 
 
