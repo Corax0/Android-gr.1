@@ -20,7 +20,7 @@
             android:background="@drawable/menu_left_top_button"
             android:lines="2"
             android:padding="@dimen/activity_main_button_padding"
-            android:textColor="#ffdd00"
+            android:textColor="#ffffff"
             android:textStyle="bold"
             android:textSize="20sp"/>
 
@@ -38,7 +38,7 @@
             android:background="@drawable/menu_right_top_button"
             android:textStyle="bold"
             android:layout_weight="1"
-            android:textColor="#ffdd00"
+            android:textColor="#ffffff"
             android:textSize="20sp" />
     </LinearLayout>
 
@@ -60,7 +60,7 @@
             android:text="@string/menu_station_list"
             android:id="@+id/menu_left_center_button"
             android:background="@drawable/menu_left_center_button"
-            android:textColor="#ffdd00"
+            android:textColor="#ffffff"
             android:textStyle="bold"
             android:textSize="20sp"
             android:layout_weight="1" />
@@ -77,7 +77,7 @@
             android:text="@string/menu_own_marks"
             android:id="@+id/menu_right_center_button"
             android:background="@drawable/menu_right_center_button"
-            android:textColor="#ffdd00"
+            android:textColor="#ffffff"
             android:textStyle="bold"
             android:textSize="20sp"
             android:layout_weight="1" />
@@ -101,7 +101,7 @@
             android:text="@string/menu_update"
             android:id="@+id/menu_right_bottom_button"
             android:background="@drawable/menu_right_bottom_button"
-            android:textColor="#ffdd00"
+            android:textColor="#ffffff"
             android:textStyle="bold"
             android:textSize="20sp"
             android:layout_weight="1" />
@@ -118,7 +118,7 @@
             android:text="@string/menu_settings"
             android:id="@+id/menu_left_bottom_button"
             android:background="@drawable/menu_left_bottom_button"
-            android:textColor="#ffdd00"
+            android:textColor="#ffffff"
             android:textStyle="bold"
             android:textSize="20sp"
             android:layout_weight="1" />
